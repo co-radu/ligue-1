@@ -1,0 +1,20 @@
+.logo {
+    width: 100px;
+}
+
+.socialbar {
+    background-color: #02163c;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toolbar {
+    background-color: #01b764;
+    display: flex;
+    align-items: center;
+}
+
+.background {
+    background: url("../assets/background-ligue1.jpg") no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,119 @@
+:host {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    width: 85%;
+    margin: 50px 0;
+    border-radius: 10px;
+}
+
+.card__ranking {
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+
+.card__ranking tr {
+    border-bottom: 1px solid #dddddd;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.card__ranking th {
+    font-weight: normal;
+    font-size: 11px;
+    font-style: italic;
+    padding: 12px 0;
+}
+
+.card__ranking td {
+    padding: 14px 0;
+    width: 80px;
+}
+
+.card__ranking tr:last-child {
+    border-bottom: none;
+}
+
+.card__ranking td:nth-child(2) {
+    text-align: left;
+    white-space: nowrap;
+}
+
+.card__ranking tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.card__ranking tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.card__ranking tr:nth-child(2),
+tr:nth-child(3),
+tr:nth-child(4),
+tr:nth-child(5) {
+    background-color: #02163c;
+    color: white;
+}
+
+.card__ranking tr:last-child,
+tr:nth-last-child(2),
+tr:nth-last-child(3) {
+    background-color: #bd0000;
+    color: white;
+}
+
+.card__ranking tr:nth-child(4),
+tr:nth-child(5),
+tr:nth-last-child(3) {
+    opacity: 0.5;
+}
+
+// Responsive Design
+
+@media screen and (max-width: 800px) {
+    .card {
+        width: 100%;
+        margin: 15px;
+    }
+
+    .card__ranking td,
+    th {
+        display: none;
+    }
+
+    .card__ranking td {
+        font-size: 12px;
+    }
+
+    .card__ranking th {
+        border-radius: 10px;
+        padding: 5px 0;
+        font-size: 10px;
+    }
+
+    .card__ranking td:first-child,
+    .card__ranking td:nth-child(2),
+    .card__ranking td:nth-child(3),
+    .card__ranking td:nth-child(4),
+    .card__ranking td:last-child,
+    .card__ranking th:first-child,
+    .card__ranking th:nth-child(2),
+    .card__ranking th:nth-child(3),
+    .card__ranking th:nth-child(4),
+    .card__ranking th:last-child {
+        display: table-cell;
+    }
+
+    @media screen and (max-width: 280px) {
+        .card__ranking td:last-child,
+        .card__ranking th:last-child {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<img src="assets/logo-ligue1.png" class="logo">
+<div class="socialbar">
+  <button type="button" class="button">
+    FFF.fr
+  </button>
+  <button type="button" class="button" (click)="redirectTo('Linkedin')">
+    Linkedin
+  </button>
+  <button type="button" class="button" (click)="redirectTo('Github')">
+    Github
+  </button>
+</div>
+<div class="toolbar">
+  <button class="toolbar__menu__button" (click)="redirectTo('Accueil')">
+    Accueil
+  </button>
+  <button class="toolbar__menu__button" (click)="redirectTo('Classement')">
+    Classement
+  </button>
+  <button class="toolbar__menu__button">
+    Calendrier / Résultats
+  </button>
+  <button class="toolbar__menu__button">
+    Mon équipe
+  </button>
+</div>
+<div class="background">
+  <router-outlet></router-outlet>
+</div>

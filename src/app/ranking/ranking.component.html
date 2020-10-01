@@ -1,0 +1,14 @@
+<div class="card" (window:resize)="onResize($event)">
+    <table class="card__ranking">
+        <tr>
+            <th *ngFor="let headerTab of headersTab">
+                {{headerTab | uppercase}}
+            </th>
+        </tr>
+        <tr *ngFor="let row of rowsTab">
+            <td *ngFor="let index of indexTab">
+                {{row[index]}}
+            </td>
+        </tr>
+    </table>
+</div>
