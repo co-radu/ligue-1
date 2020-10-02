@@ -8,7 +8,7 @@
 .card {
     background-color: white;
     width: 85%;
-    margin: 50px 0;
+    margin: 200px 0;
     border-radius: 10px;
 }
 
@@ -69,17 +69,18 @@ tr:nth-last-child(3) {
 }
 
 .card__ranking tr:nth-child(4),
-tr:nth-child(5),
-tr:nth-last-child(3) {
-    opacity: 0.5;
+tr:nth-child(5) {
+    background-color: #808a9d;
 }
 
-// Responsive Design
+tr:nth-last-child(3) {
+    background-color: #de7f7f;
+}
 
 @media screen and (max-width: 800px) {
     .card {
         width: 100%;
-        margin: 15px;
+        margin: 132px 15px;
     }
 
     .card__ranking td,
@@ -110,10 +111,9 @@ tr:nth-last-child(3) {
         display: table-cell;
     }
 
-    @media screen and (max-width: 280px) {
-        .card__ranking td:last-child,
-        .card__ranking th:last-child {
-            display: none;
+    @media screen and (max-width: 450px) {
+        .card {
+            margin: 103px 15px;
         }
     }
 }

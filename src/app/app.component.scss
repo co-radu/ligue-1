@@ -1,20 +1,72 @@
-.logo {
+.header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+}
+
+.header__logo {
     width: 100px;
 }
 
-.socialbar {
-    background-color: #02163c;
+.header__bar {
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
 }
 
-.toolbar {
-    background-color: #01b764;
+.header__bar__socialbar {
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    background-color: #091c3e;
+    height: 50%;
+}
+
+.header__bar__toolbar {
+    display: flex;
+    height: 50%;
+    background-color: #07c26b;
+}
+
+.header__bar__socialbar__button,
+.header__bar__toolbar__button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 0 0 15px;
+}
+
+.header__bar__socialbar__button:focus,
+.header__bar__toolbar__button:focus {
+    outline: none;
+}
+
+.header__bar__socialbar__button:last-child {
+    margin-right: 15px;
+}
+
+.header__bar__socialbar__button:hover {
+    color: #07c26b;
+}
+
+.header__bar__toolbar__button:hover {
+    color: #091c3e;
 }
 
 .background {
     background: url("../assets/background-ligue1.jpg") no-repeat;
     background-size: cover;
+}
+
+@media screen and (max-width: 800px) {
+    .header__logo {
+        width: 80px;
+    }
+
+    @media screen and (max-width: 450px) {
+        .header__logo {
+            width: 60px;
+        }
+    }
 }

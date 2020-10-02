@@ -1,29 +1,33 @@
-<img src="assets/logo-ligue1.png" class="logo">
-<div class="socialbar">
-  <button type="button" class="button">
-    FFF.fr
-  </button>
-  <button type="button" class="button" (click)="redirectTo('Linkedin')">
-    Linkedin
-  </button>
-  <button type="button" class="button" (click)="redirectTo('Github')">
-    Github
-  </button>
-</div>
-<div class="toolbar">
-  <button class="toolbar__menu__button" (click)="redirectTo('Accueil')">
-    Accueil
-  </button>
-  <button class="toolbar__menu__button" (click)="redirectTo('Classement')">
-    Classement
-  </button>
-  <button class="toolbar__menu__button">
-    Calendrier / Résultats
-  </button>
-  <button class="toolbar__menu__button">
-    Mon équipe
-  </button>
+<div class="header">
+	<img src="assets/logo-ligue1.png" class="header__logo">
+	<nav class="header__bar">
+		<div class="header__bar__socialbar">
+			<button type="button" (click)="redirectTo('lfp')" class="header__bar__socialbar__button">
+				LFP
+			</button>
+			<button type="button" (click)="redirectTo('fff')" class="header__bar__socialbar__button">
+				FFF
+			</button>
+			<button type="button" class="header__bar__socialbar__button" (click)="redirectTo('linkedin')">
+				LINKEDIN
+			</button>
+			<button type="button" class="header__bar__socialbar__button" (click)="redirectTo('github')">
+				GITHUB
+			</button>
+		</div>
+		<div class="header__bar__toolbar">
+			<button class="header__bar__toolbar__button" (click)="redirectTo('accueil')">
+				ACCUEIL
+			</button>
+			<button class="header__bar__toolbar__button" (click)="redirectTo('classement')">
+				CLASSEMENT
+			</button>
+			<button class="header__bar__toolbar__button">
+				CALENDRIER / RÉSULTATS
+			</button>
+		</div>
+	</nav>
 </div>
 <div class="background">
-  <router-outlet></router-outlet>
+	<router-outlet></router-outlet>
 </div>
