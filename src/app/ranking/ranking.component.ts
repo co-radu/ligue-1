@@ -11,11 +11,11 @@ import { AppServicesService } from '../shared/services/app-services.service';
 })
 export class RankingComponent implements OnInit {
 
-	private headersArray: string[] = ['position', 'club', 'joués', 'points', 'victoires', 'nuls', 'défaites', 'buts incrits', 'buts pris', 'différence'];
-	private mobileHeadersArray: string[] = ['pos', 'club', 'j', 'pts', 'diff'];
-	public headersTab: string[];
+	public headersTab: string[] = ['position', 'club', 'joués', 'points', 'victoires', 'nuls', 'défaites', 'buts incrits', 'buts pris', 'différence'];
+	public mobileHeadersTab: string[] = ['pos', 'club', 'j', 'pts', 'diff'];
 	public indexTab: string[] = ['position', 'team', 'playedGames', 'points', 'won', 'draw', 'lost', 'goalsFor', 'goalsAgainst', 'goalDifference'];
 	public rowsTab: Ranking[];
+	public windowWidth: number = window.innerWidth;
 
 	constructor(
 		private appServices: AppServicesService,
@@ -32,18 +32,9 @@ export class RankingComponent implements OnInit {
 				);
 			}
 		);
-		if (window.innerWidth >= 800) {
-			this.headersTab = this.headersArray;
-		} else {
-			this.headersTab = this.mobileHeadersArray;
-		};
 	}
 
 	onResize(event): void {
-		if (event.target.innerWidth >= 800) {
-			this.headersTab = this.headersArray;
-		} else {
-			this.headersTab = this.mobileHeadersArray;
-		}
+		this.windowWidth = event.target.innerWidth;
 	}
 }

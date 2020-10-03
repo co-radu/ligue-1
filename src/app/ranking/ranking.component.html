@@ -1,8 +1,13 @@
 <div class="card" (window:resize)="onResize($event)">
     <table class="card__ranking">
-        <tr>
+        <tr *ngIf="windowWidth >= 800">
             <th *ngFor="let headerTab of headersTab">
                 {{headerTab | uppercase}}
+            </th>
+        </tr>
+        <tr *ngIf="windowWidth < 800">
+            <th *ngFor="let mobileHeaderTab of mobileHeadersTab">
+                {{mobileHeaderTab | uppercase}}
             </th>
         </tr>
         <tr *ngFor="let row of rowsTab">

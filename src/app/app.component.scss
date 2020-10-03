@@ -2,10 +2,27 @@
     display: flex;
     position: fixed;
     width: 100%;
+    background: none;
 }
 
 .header__logo {
     width: 100px;
+}
+
+.header__mobileBar {
+    width: 100%;
+    background-color: #091c3e;
+    padding: 15px 0;
+}
+
+.header__mobileBar__button {
+    background: none;
+    border: none;
+    margin-left: 10px;
+}
+
+.header__mobileBar__button__icon {
+    width: 35px;
 }
 
 .header__bar {
@@ -14,11 +31,11 @@
     flex-direction: column;
 }
 
-.header__bar__socialbar {
+.header__bar__socialBar {
     display: flex;
     justify-content: flex-end;
-    background-color: #091c3e;
     height: 50%;
+    background-color: #091c3e;
 }
 
 .header__bar__toolbar {
@@ -27,26 +44,27 @@
     background-color: #07c26b;
 }
 
-.header__bar__socialbar__button,
+.header__bar__socialBar__button,
 .header__bar__toolbar__button {
     background: none;
     border: none;
     color: white;
     cursor: pointer;
     font-weight: bold;
-    margin: 0 0 0 15px;
+    margin-left: 15px;
 }
 
-.header__bar__socialbar__button:focus,
-.header__bar__toolbar__button:focus {
+.header__bar__socialBar__button:focus,
+.header__bar__toolbar__button:focus,
+.header__mobileBar__button:focus {
     outline: none;
 }
 
-.header__bar__socialbar__button:last-child {
+.header__bar__socialBar__button:last-child {
     margin-right: 15px;
 }
 
-.header__bar__socialbar__button:hover {
+.header__bar__socialBar__button:hover {
     color: #07c26b;
 }
 
@@ -59,9 +77,25 @@
     background-size: cover;
 }
 
+.mobileSidenav {
+    background-color: #091c3e;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
 @media screen and (max-width: 800px) {
+    .header {
+        align-items: flex-start;
+    }
+
     .header__logo {
         width: 80px;
+    }
+
+    .background {
+        background-image: none;
+        background-color: white;
     }
 
     @media screen and (max-width: 450px) {

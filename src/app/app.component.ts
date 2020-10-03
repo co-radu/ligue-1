@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+	public windowWidth: number = window.innerWidth;
+	public mobileSidenavIsOpened: boolean = false;
+
 	constructor(
 		private router: Router,
 	) { }
@@ -33,5 +36,20 @@ export class AppComponent {
 				this.router.navigate(['/ranking']);
 				break;
 		}
+		if (this.mobileSidenavIsOpened === true) {
+			this.mobileSidenavIsOpened = false;
+		}
+	}
+
+	onResize(event): void {
+		this.windowWidth = event.target.innerWidth;
+	}
+
+	openMobileSidenav(): void {
+		this.mobileSidenavIsOpened = true;
+	}
+
+	closeMobileSidenav(): void {
+		this.mobileSidenavIsOpened = false;
 	}
 }
