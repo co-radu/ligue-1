@@ -1,19 +1,21 @@
 <div *ngIf="mobileSidenavIsOpened == false else elseBlock">
 	<div class="header" (window:resize)=onResize($event)>
-		<img src="assets/logo-ligue1.png" class="header__logo">
+		<img src="assets/ligue1_logo.png" class="header__logo">
 		<div *ngIf="windowWidth <= 800 else elseBlock" class="header__mobileBar">
 			<button class="header__mobileBar__button" (click)="openMobileSidenav()">
-				<img src="../assets/icon-menu.png" class="header__mobileBar__button__icon">
+				<img src="../assets/menu_icon.png" class="header__mobileBar__button__icon">
 			</button>
 		</div>
 		<ng-template #elseBlock>
 			<nav class="header__bar">
 				<div class="header__bar__socialBar">
 					<button type="button" (click)="redirectTo('lfp')" class="header__bar__socialBar__button">
-						LFP
+						<!-- <img src="../assets/lfp_logo.jpg" class="mobileSidenav__toolbar__button__icon"> -->
+						LFP.FR
 					</button>
 					<button type="button" (click)="redirectTo('fff')" class="header__bar__socialBar__button">
-						FFF
+						<!-- <img src="../assets/fff_logo.png" class="mobileSidenav__toolbar__button__icon__fff"> -->
+						FFF.FR
 					</button>
 					<button type="button" class="header__bar__socialBar__button" (click)="redirectTo('linkedin')">
 						LINKEDIN
@@ -24,12 +26,15 @@
 				</div>
 				<div class="header__bar__toolbar">
 					<button class="header__bar__toolbar__button" (click)="redirectTo('accueil')">
+						<!-- <img src="../assets/home_icon.png" class="mobileSidenav__toolbar__button__icon"> -->
 						ACCUEIL
 					</button>
 					<button class="header__bar__toolbar__button" (click)="redirectTo('classement')">
+						<!-- <img src="../assets/ranking_icon.png" class="mobileSidenav__toolbar__button__icon"> -->
 						CLASSEMENT
 					</button>
 					<button class="header__bar__toolbar__button">
+						<!-- <img src="../assets/calendar_icon.png" class="mobileSidenav__toolbar__button__icon"> -->
 						CALENDRIER / RÉSULTATS
 					</button>
 				</div>
@@ -42,32 +47,32 @@
 </div>
 <ng-template #elseBlock>
 	<div class="mobileSidenav">
-		<button class="mobileSidenav__closedButton" (click)="closeMobileSidenav()">
-			X
-		</button>
+		<div class="mobileSidenav__header">
+			<img src="assets/ligue1_logo.png" class="mobileSidenav__header__logo">
+			<button class="mobileSidenav__header__closeButton" (click)="closeMobileSidenav()">
+				X
+			</button>
+		</div>
 		<nav class="mobileSidenav__toolbar">
 			<button class="mobileSidenav__toolbar__button" (click)="redirectTo('accueil')">
+				<img src="../assets/home_icon.png" class="mobileSidenav__toolbar__button__icon">
 				ACCUEIL
 			</button>
 			<button class="mobileSidenav__toolbar__button" (click)="redirectTo('classement')">
+				<img src="../assets/ranking_icon.png" class="mobileSidenav__toolbar__button__icon">
 				CLASSEMENT
 			</button>
 			<button class="mobileSidenav__toolbar__button">
+				<img src="../assets/calendar_icon.png" class="mobileSidenav__toolbar__button__icon">
 				CALENDRIER / RÉSULTATS
 			</button>
-		</nav>
-		<nav class="mobileSidenav__socialBar">
-			<button type="button" (click)="redirectTo('lfp')" class="mobileSidenav__socialBar__button">
-				LFP
+			<button type="button" (click)="redirectTo('lfp')" class="mobileSidenav__toolbar__button">
+				<img src="../assets/lfp_logo.jpg" class="mobileSidenav__toolbar__button__icon">
+				LFP.FR
 			</button>
-			<button type="button" (click)="redirectTo('fff')" class="mobileSidenav__socialBar__button">
-				FFF
-			</button>
-			<button type="button" class="mobileSidenav__socialBar__button" (click)="redirectTo('linkedin')">
-				LINKEDIN
-			</button>
-			<button type="button" class="mobileSidenav__socialBar__button" (click)="redirectTo('github')">
-				GITHUB
+			<button type="button" (click)="redirectTo('fff')" class="mobileSidenav__toolbar__button">
+				<img src="../assets/fff_logo.png" class="mobileSidenav__toolbar__button__icon__fff">
+				FFF.FR
 			</button>
 		</nav>
 	</div>
