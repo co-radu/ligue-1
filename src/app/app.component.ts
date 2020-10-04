@@ -29,10 +29,10 @@ export class AppComponent {
 			case 'github':
 				window.open('https://github.com/co-radu', '_blank');
 				break;
-			case 'accueil':
+			case 'home':
 				this.router.navigate(['']);
 				break;
-			case 'classement':
+			case 'ranking':
 				this.router.navigate(['/ranking']);
 				break;
 		}
