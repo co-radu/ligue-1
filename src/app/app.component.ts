@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 @Component({
 	selector: 'app-root',
@@ -34,6 +37,9 @@ export class AppComponent {
 				break;
 			case 'ranking':
 				this.router.navigate(['/ranking']);
+				break;
+			case 'calendar_results':
+				this.router.navigate(['/calendar_results']);
 				break;
 		}
 		if (this.mobileSidenavIsOpened === true) {

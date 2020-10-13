@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card__matchDaySelector">
+        <button class="card__matchDaySelector__button" (click)="previousMatchDay()">
+            &lt;
+        </button>
+        <p>
+            Journée {{matchDaySelector}}
+        </p>
+        <button class="card__matchDaySelector__button" (click)="nextMatchDay()">
+            &gt;
+        </button>
+    </div>
+    <ul *ngFor="let match of matchDay">
+        <li>
+            <div class="card__match">
+                <div class="card__match__date">
+                    {{ match.utcDate | date: "fullDate":"fr" | uppercase}}
+                </div>
+                <div class="card__match__club">
+                    {{ match.homeTeam.name | uppercase}}
+                </div>
+                <div class="card__match__score" *ngIf="match.status == 'FINISHED' else elseBlock">
+                    {{ match.score.fullTime.homeTeam }} -
+                    {{ match.score.fullTime.awayTeam }}
+                </div>
+                <ng-template #elseBlock class="card__match__score">
+                    {{ match.utcDate | date:"shortTime":"fr" }}
+                </ng-template>
+                <div class="card__match__club">
+                    {{ match.awayTeam.name | uppercase}}
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

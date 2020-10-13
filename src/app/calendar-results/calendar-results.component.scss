@@ -1,0 +1,21 @@
+:host {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    width: 85%;
+    margin: 200px 0;
+    border-radius: 10px;
+}
+
+.card__matchDaySelector {
+    text-transform: uppercase;
+}
+
+ul {
+    list-style: none;
+}

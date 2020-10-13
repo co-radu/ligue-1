@@ -23,4 +23,12 @@ export class AppServicesService {
 			}
 		});
 	}
+
+	getMatchDay(): Observable<any> {
+		return this.httpClient.get<any>(`${this.apiUrl}/v2/competitions/2015/matches`, {
+			headers: {
+				'X-Auth-Token': '833df6e047a745bea114f93017048fa8',
+			}
+		});
+	}
 }
