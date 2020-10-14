@@ -9,8 +9,9 @@ import { AppServicesService } from '../shared/services/app-services.service';
 })
 export class CalendarResultsComponent implements OnInit {
 
-	public matchDaySelector: number = 1;
+	public matchDaySelector: number;
 	public matchDay: Match[];
+	public windowWidth: number = window.innerWidth;
 	private totalMatchDayInSeason: number;
 	private allMatchInSeason: Match[];
 
@@ -24,6 +25,13 @@ export class CalendarResultsComponent implements OnInit {
 				let totalMatchInSeason: number = apiRes.matches.length;
 				this.allMatchInSeason = apiRes.matches;
 				this.totalMatchDayInSeason = this.allMatchInSeason[totalMatchInSeason - 1].matchday;
+				this.allMatchInSeason.forEach(
+					(match: Match) => {
+						if (match.status === 'FINISHED') {
+							this.matchDaySelector = match.matchday;
+						}
+					}
+				);
 				this.filterMatches();
 			}
 		);
@@ -35,7 +43,6 @@ export class CalendarResultsComponent implements OnInit {
 				return match.matchday === this.matchDaySelector;
 			}
 		);
-		console.log(this.matchDay);
 	}
 
 	nextMatchDay(): void {
@@ -50,5 +57,9 @@ export class CalendarResultsComponent implements OnInit {
 			this.matchDaySelector -= 1;
 			this.filterMatches();
 		}
+	}
+
+	onResize(event): void {
+		this.windowWidth = event.target.innerWidth;
 	}
 }

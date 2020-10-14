@@ -6,6 +6,6 @@ export class Match {
     homeTeam: Team;
     matchday: number;
     score: Score;
-    utcDate: Date;
+    utcDate: string;
     status: string;
 }
