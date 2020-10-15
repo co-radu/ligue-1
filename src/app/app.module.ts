@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RankingComponent } from './ranking/ranking.component';
 import { CalendarResultsComponent } from './calendar-results/calendar-results.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RankingComponent,
-    CalendarResultsComponent
+    CalendarResultsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

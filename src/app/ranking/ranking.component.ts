@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Competition } from '../shared/models/competition.model';
+import { HomeComponent } from '../home/home.component';
 import { Ranking } from '../shared/models/ranking.model';
 import { Team } from '../shared/models/team.model';
 import { AppServicesService } from '../shared/services/app-services.service';
@@ -22,15 +22,34 @@ export class RankingComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		this.appServices.getRanking().subscribe(
-			(ligue1: Competition) => {
-				this.rowsTab = ligue1.standings[0].table.map(
-					(teamRank: Ranking) => {
-						teamRank.team = (teamRank.team as Team).name.toUpperCase();
-						return teamRank;
+		HomeComponent.ranking.subscribe(
+			(ranking: Ranking[]) => {
+				if (ranking === null) {
+					this.appServices.getRanking().subscribe(
+						(apiRes) => {
+							HomeComponent.ranking.next(apiRes.standings[0].table);
+						}
+					);
+				} else {
+					this.rowsTab = ranking.map(
+						(teamRank: Ranking) => {
+							if (typeof (teamRank.team) !== 'string') {
+								teamRank.team = (teamRank.team as Team).name.toUpperCase();
+							}
+							return teamRank
+						}
+					);
+				}
+			}
+		);
+		setInterval(
+			() => {
+				this.appServices.getRanking().subscribe(
+					(apiRes) => {
+						HomeComponent.ranking.next(apiRes.standings[0].table);
 					}
 				);
-			}
+			}, 300000
 		);
 	}
 

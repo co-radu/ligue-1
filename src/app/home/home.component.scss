@@ -1,0 +1,55 @@
+:host {
+    width: 100%;
+    display: grid;
+}
+
+.card {
+    background-color: white;
+    width: 40%;
+    min-width: 410px;
+    margin: 200px 0;
+    border-radius: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card__matchesList__matchDaySelector {
+    min-width: 215px;
+    font-size: 14px;
+    color: darkgray;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.card__matchesList__match__clubs {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.card__matchesList__match__clubs__homeTeam,
+.card__matchesList__match__clubs__awayTeam {
+    width: 50%;
+    display: flex;
+    font-style: italic;
+}
+
+.card__matchesList__match__clubs__homeTeam {
+    justify-content: flex-end;
+}
+
+.card__matchesList__match__clubs__score {
+    display: flex;
+    justify-content: center;
+    margin: 0 15px;
+    font-weight: bold;
+    min-width: 30px;
+}
