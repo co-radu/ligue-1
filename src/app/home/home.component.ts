@@ -4,6 +4,7 @@ import { Match } from '../shared/models/match.model';
 import { Ranking } from '../shared/models/ranking.model';
 import { Team } from '../shared/models/team.model';
 import { AppServicesService } from '../shared/services/app-services.service';
+import { news } from './news';
 
 @Component({
 	selector: 'app-home',
@@ -14,15 +15,19 @@ export class HomeComponent implements OnInit {
 
 	static matches: BehaviorSubject<Match[] | null> = new BehaviorSubject(null);
 	static ranking: BehaviorSubject<Ranking[] | null> = new BehaviorSubject(null);
-	public matchDay: Match[];
+	public headersTab: string[] = ['pos', 'club', 'j', 'pts'];
+	public indexTab: string[] = ['position', 'team', 'playedGames', 'points'];
 	public rowsTab: Ranking[];
+	public matchDay: Match[];
 	public resultsModeOn: boolean = true;
+	public news: any[] = news;
 
 	constructor(
 		private appServices: AppServicesService,
 	) { }
 
 	ngOnInit(): void {
+		console.log(this.news);
 		HomeComponent.matches.subscribe(
 			(matches: Match[]) => {
 				if (matches === null) {
@@ -56,7 +61,7 @@ export class HomeComponent implements OnInit {
 							if (typeof (teamRank.team) !== 'string') {
 								teamRank.team = (teamRank.team as Team).name.toUpperCase();
 							}
-							return teamRank
+							return teamRank;
 						}
 					);
 				}

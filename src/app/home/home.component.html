@@ -1,37 +1,56 @@
-<div class="card">
-    <button class="card__button" (click)="resultsModeOn = true">Résultats</button>
-    <button class="card__button" (click)="resultsModeOn = false">Classement</button>
-    <ul class="card__matchesList" *ngIf="resultsModeOn == true">
-        <div class="card__matchesList__matchDaySelector">
-            Journée {{ matchDay? matchDay[0].matchday : null}}
+<div class="container">
+    <div class="card">
+        <div class="card__buttons">
+            <button
+                [ngClass]="{'card__buttons__toggle' : resultsModeOn == true, 'card__buttons__released': resultsModeOn == false}"
+                (click)="resultsModeOn = true">
+                Résultats
+            </button>
+            <button
+                [ngClass]="{'card__buttons__toggle' : resultsModeOn == false, 'card__buttons__released': resultsModeOn == true}"
+                (click)="resultsModeOn = false">Classement</button>
         </div>
-        <li *ngFor="let match of matchDay" class="card__matchesList__match">
-            <div class="card__matchesList__match__clubs">
-                <div class="card__matchesList__match__clubs__homeTeam">
-                    {{ match.homeTeam.name | uppercase}}
-                </div>
-                <div class="card__matchesList__match__clubs__score" *ngIf="match.status == 'FINISHED'">
-                    {{ match.score.fullTime.homeTeam }} -
-                    {{ match.score.fullTime.awayTeam }}
-                </div>
-                <div class="card__matchesList__match__clubs__score" *ngIf="match.status == 'SCHEDULED'">
-                    {{ match.utcDate | date:"shortTime":"fr" }}
-                </div>
-                <div class="card__matchesList__match__clubs__awayTeam">
-                    {{ match.awayTeam.name | uppercase}}
-                </div>
+        <ul class="card__matchesList" *ngIf="resultsModeOn == true">
+            <div class="card__matchesList__matchDaySelector">
+                Journée {{ matchDay? matchDay[0].matchday : null}}
             </div>
-        </li>
-    </ul>
-    <ul class="card__ranking" *ngIf="resultsModeOn == false">
-        <li *ngFor="let row of rowsTab">
-            {{ row.position }}
-            {{ row.team }}
-            {{ row.playedGames }}
-            {{ row.points }}
-        </li>
-    </ul>
-</div>
-<div class="card__calendar">
-
+            <li *ngFor="let match of matchDay" class="card__matchesList__match">
+                <div class="card__matchesList__match__clubs">
+                    <div class="card__matchesList__match__clubs__homeTeam">
+                        {{ match.homeTeam.name | uppercase}}
+                    </div>
+                    <div class="card__matchesList__match__clubs__score">
+                        {{ match.score.fullTime.homeTeam }} -
+                        {{ match.score.fullTime.awayTeam }}
+                    </div>
+                    <div class="card__matchesList__match__clubs__awayTeam">
+                        {{ match.awayTeam.name | uppercase}}
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <table class="card__ranking" *ngIf="resultsModeOn == false">
+            <tr>
+                <th *ngFor="let headerTab of headersTab">
+                    {{headerTab | uppercase}}
+                </th>
+            </tr>
+            <tr *ngFor="let row of rowsTab">
+                <td *ngFor="let index of indexTab">
+                    {{row[index]}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="news-container">
+        <div class="news-card" *ngFor="let actu of news">
+            <button class="news-card__button">
+                +
+            </button>
+            <img [src]="actu.img" class="news-card__image">
+            <p class="news-card__main">
+                {{ actu.main }}
+            </p>
+        </div>
+    </div>
 </div>
