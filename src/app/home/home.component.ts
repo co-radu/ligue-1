@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-		console.log(this.news);
 		HomeComponent.matches.subscribe(
 			(matches: Match[]) => {
 				if (matches === null) {
