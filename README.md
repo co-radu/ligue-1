@@ -1,6 +1,6 @@
 # L1App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+This project is deploy at: "https://my-ligue-1-25102020.web.app/".
 
 ## Development server
 
