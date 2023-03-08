@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
@@ -16,18 +16,10 @@ export class AppServicesService {
 	) { }
 
 	getRanking(): Observable<any> {
-		return this.httpClient.get<any>(`${this.apiUrl}v2/competitions/2015/standings`, {
-			headers: {
-				'X-Auth-Token': '833df6e047a745bea114f93017048fa8',
-			}
-		});
+		return this.httpClient.get<any>(`${this.apiUrl}standings`);
 	}
 
 	getMatchDay(): Observable<any> {
-		return this.httpClient.get<any>(`${this.apiUrl}/v2/competitions/2015/matches`, {
-			headers: {
-				'X-Auth-Token': '833df6e047a745bea114f93017048fa8',
-			}
-		});
+		return this.httpClient.get<any>(`${this.apiUrl}matches`);
 	}
 }
