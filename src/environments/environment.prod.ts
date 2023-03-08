@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "http://api.football-data.org/",
+  apiUrl: "https://nmkibqmbxc.execute-api.eu-north-1.amazonaws.com/",
 };
