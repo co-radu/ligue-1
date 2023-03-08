@@ -1,0 +1,1 @@
+{"version":3,"file":"styles.css","mappings":";;;AAAA;EACI;AACJ,C","sources":["./src/styles.scss"],"sourcesContent":["body {\n    margin: 0;\n}\n"],"names":[],"sourceRoot":"webpack:///","x_google_ignoreList":[]}
