@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Match } from '../shared/models/match.model';
-import { Ranking } from '../shared/models/ranking.model';
-import { Team } from '../shared/models/team.model';
+import { Match } from '../shared/models/match/match';
+import { Ranking } from '../shared/models/season/standing';
+import { Team } from '../shared/models/team/team';
 import { AppServicesService } from '../shared/services/app-services.service';
 import { news } from './news';
 

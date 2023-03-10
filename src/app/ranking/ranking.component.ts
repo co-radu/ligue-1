@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
-import { Ranking } from '../shared/models/ranking.model';
-import { Team } from '../shared/models/team.model';
+import { Ranking } from '../shared/models/season/standing';
+import { Team } from '../shared/models/team/team';
 import { AppServicesService } from '../shared/services/app-services.service';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from '../home/home.component';
-import { Match } from '../shared/models/match.model';
+import { Match } from '../shared/models/match/match';
 import { AppServicesService } from '../shared/services/app-services.service';
 
 @Component({
