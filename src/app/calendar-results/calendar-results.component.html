@@ -23,8 +23,8 @@
                     {{ match.homeTeam.name | uppercase}}
                 </div>
                 <div class="card__matchesList__match__clubs__score" *ngIf="match.status == 'FINISHED'">
-                    {{ match.score.fullTime.homeTeam }} -
-                    {{ match.score.fullTime.awayTeam }}
+                    {{ match.score.fullTime.home }} -
+                    {{ match.score.fullTime.away }}
                 </div>
                 <div class="card__matchesList__match__clubs__score" *ngIf="match.status == 'SCHEDULED'">
                     {{ match.utcDate | date:"shortTime":"fr" }}

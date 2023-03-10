@@ -9,17 +9,17 @@ import { environment } from '../../../environments/environment';
 
 export class AppServicesService {
 
-	private apiUrl: string = environment.apiUrl;
+	private apiUrl: string = 'https://nmkibqmbxc.execute-api.eu-north-1.amazonaws.com';
 
 	constructor(
 		private httpClient: HttpClient,
 	) { }
 
-	getRanking(): Observable<any> {
-		return this.httpClient.get<any>(`${this.apiUrl}standings`);
+	getStanding(): Observable<any> {
+		return this.httpClient.get<any>(`${this.apiUrl}/standings`);
 	}
 
 	getMatchDay(): Observable<any> {
-		return this.httpClient.get<any>(`${this.apiUrl}matches`);
+		return this.httpClient.get<any>(`${this.apiUrl}/matches`);
 	}
 }

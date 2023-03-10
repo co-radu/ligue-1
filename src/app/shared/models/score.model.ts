@@ -1,18 +1,18 @@
 export class Score {
     extraTime: {
-        awayTeam: number,
-        homeTeam: number,
+        away: number,
+        home: number,
     };
     fullTime: {
-        awayTeam: number,
-        homeTeam: number,
+        away: number,
+        home: number,
     };
     halfTime: {
-        awayTeam: number,
+        away: number,
         homeTeam: number,
     };
     penalties: {
-        awayTeam: number,
-        homeTeam: number,
+        away: number,
+        home: number,
     };
 }

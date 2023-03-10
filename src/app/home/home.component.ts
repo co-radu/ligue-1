@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
 		HomeComponent.ranking.subscribe(
 			(ranking: Ranking[]) => {
 				if (ranking === null) {
-					this.appServices.getRanking().subscribe(
+					this.appServices.getStanding().subscribe(
 						(apiRes) => {
 							HomeComponent.ranking.next(apiRes.standings[0].table);
 						}
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
 						HomeComponent.matches.next(apiRes.matches);
 					}
 				);
-				this.appServices.getRanking().subscribe(
+				this.appServices.getStanding().subscribe(
 					(apiRes) => {
 						HomeComponent.ranking.next(apiRes.standings[0].table);
 					}

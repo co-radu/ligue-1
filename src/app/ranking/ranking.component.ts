@@ -25,7 +25,7 @@ export class RankingComponent implements OnInit {
 		HomeComponent.ranking.subscribe(
 			(ranking: Ranking[]) => {
 				if (ranking === null) {
-					this.appServices.getRanking().subscribe(
+					this.appServices.getStanding().subscribe(
 						(apiRes) => {
 							HomeComponent.ranking.next(apiRes.standings[0].table);
 						}
@@ -44,7 +44,7 @@ export class RankingComponent implements OnInit {
 		);
 		setInterval(
 			() => {
-				this.appServices.getRanking().subscribe(
+				this.appServices.getStanding().subscribe(
 					(apiRes) => {
 						HomeComponent.ranking.next(apiRes.standings[0].table);
 					}

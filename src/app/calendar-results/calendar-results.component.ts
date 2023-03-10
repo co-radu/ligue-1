@@ -22,6 +22,7 @@ export class CalendarResultsComponent implements OnInit {
 	ngOnInit(): void {
 		HomeComponent.matches.subscribe(
 			(matches: Match[]) => {
+				console.log(matches)
 				if (matches === null) {
 					this.appServices.getMatchDay().subscribe(
 						(apiRes) => {
@@ -38,6 +39,7 @@ export class CalendarResultsComponent implements OnInit {
 						}
 					);
 					this.filterMatches();
+					console.log(this.matchDay)
 				}
 			}
 		);
