@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RankingComponent } from './ranking.component';
+import { RankingComponent } from './standings.component';
 
 describe('RankingComponent', () => {
   let component: RankingComponent;
@@ -8,9 +8,9 @@ describe('RankingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RankingComponent ]
+      declarations: [RankingComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

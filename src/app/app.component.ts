@@ -47,7 +47,7 @@ export class AppComponent {
 		}
 	}
 
-	onResize(event): void {
+	onResize(event: { target: { innerWidth: number; }; }): void {
 		this.windowWidth = event.target.innerWidth;
 	}
 

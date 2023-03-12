@@ -23,11 +23,7 @@ export class SeasonService {
     return this.getStandingsDescription().pipe(map((standingsDescrition: StandingsDescription) => <Standing>standingsDescrition.standings.find((standing: Standing) => { standing.type === "TOTAL" })));
   }
 
-  getCurrentMatchday(): number {
-    let matchday: number = 1;
-    this.getStandingsDescription().subscribe((standingsDescription: StandingsDescription) => {
-      matchday = standingsDescription.season.currentMatchday;
-    });
-    return matchday;
+  getCurrentMatchday(): Observable<number> {
+    return this.getStandingsDescription().pipe(map((standingsDescription: StandingsDescription) => <number>standingsDescription.season.currentMatchday));
   }
 }

@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalendarResultsComponent } from './calendar-results/calendar-results.component';
 import { HomeComponent } from './home/home.component';
-import { RankingComponent } from './ranking/ranking.component';
+import { StandingsComponent } from './standings/standings.component';
 
 const routes: Routes = [
-  { path: 'ranking', component: RankingComponent },
+  { path: 'standings', component: StandingsComponent },
   { path: 'calendar_results', component: CalendarResultsComponent },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
