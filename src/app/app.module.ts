@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CalendarResultsComponent } from './calendar-results/calendar-results.component';
 import { HomeComponent } from './home/home.component';
 import { StandingsComponent } from './standings/standings.component';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { StandingsComponent } from './standings/standings.component';
     AppComponent,
     StandingsComponent,
     CalendarResultsComponent,
-    HomeComponent
+    HomeComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

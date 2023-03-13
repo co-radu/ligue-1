@@ -3,7 +3,7 @@
         <div class="card__buttons">
             <ul class="card__matchesList">
                 <div class="card__matchesList__matchDaySelector">
-                    Journée {{ currentMatchday | async}}
+                    Journée {{ currentMatchday}}
                 </div>
                 <li *ngFor="let match of matchesOfCurrentMatchday" class="card__matchesList__match">
                     <div class="card__matchesList__match__clubs">

@@ -1,0 +1,71 @@
+@import '../shared/styles/variables.scss';
+
+header,
+footer {
+    background-color: $primary;
+    width: 100vw;
+    height: 56px;
+}
+
+.header,
+.footer {
+    height: 100%;
+    display: flex;
+}
+
+.header {
+    justify-content: space-between;
+    padding: 0 8px;
+    align-items: center;
+}
+
+
+.footer {
+    justify-content: center;
+}
+
+.material-symbols-outlined {
+    line-height: normal;
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 500,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.links {
+    text-decoration: none;
+}
+
+.material-symbols-outlined,
+.links {
+    color: #FFFFFF;
+}
+
+.ligue-1-link,
+.app-title-link {
+    font-weight: bold;
+}
+
+.app-title-link,
+#uber-eats {
+    text-transform: capitalize;
+}
+
+#ligue-1,
+#uber-eats {
+    text-decoration: underline;
+    color: $secondary;
+}
+
+#ligue-1 {
+    text-transform: uppercase;
+}
+
+#uber-eats {
+    font-weight: normal;
+}
+
+.social-logos {
+    width: 24px;
+}

@@ -6,8 +6,9 @@ import { StandingsComponent } from './standings/standings.component';
 
 const routes: Routes = [
   { path: 'standings', component: StandingsComponent },
-  { path: 'calendar_results', component: CalendarResultsComponent },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'matches', component: CalendarResultsComponent },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
