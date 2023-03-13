@@ -1,10 +1,18 @@
 @import '../shared/styles/variables.scss';
 
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 header,
 footer {
     background-color: $primary;
     width: 100vw;
-    height: 56px;
+    height: fit-content;
+    position: relative;
 }
 
 .header,
@@ -15,13 +23,14 @@ footer {
 
 .header {
     justify-content: space-between;
-    padding: 0 8px;
+    padding: 10px 8px;
     align-items: center;
 }
 
 
 .footer {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .material-symbols-outlined {
@@ -47,25 +56,43 @@ footer {
     font-weight: bold;
 }
 
-.app-title-link,
-#uber-eats {
-    text-transform: capitalize;
+.app-title-link {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.ligue-1-link-container {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }
 
 #ligue-1,
 #uber-eats {
-    text-decoration: underline;
     color: $secondary;
 }
 
 #ligue-1 {
+    font-size: 1.2rem;
     text-transform: uppercase;
 }
 
 #uber-eats {
+    text-transform: capitalize;
     font-weight: normal;
 }
 
+.social-links-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.social-links {
+    display: block;
+    margin: 0 12px;
+}
+
 .social-logos {
-    width: 24px;
+    height: 26px;
+    width: 26px;
 }
