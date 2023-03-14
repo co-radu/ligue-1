@@ -1,46 +1,55 @@
 <div class="container">
     <header>
-        <div class="header">
-            <button>
-                <span class="material-symbols-outlined">
-                    menu
-                </span>
-            </button>
-            <a routerLink="./home" class="app-title-link links" aria-label="Redirect to home">ligue 1</a>
-            <a routerLink="" class="links" aria-label="login">
-                <span class="material-symbols-outlined">
-                    account_circle
-                </span>
-            </a>
-        </div>
+        <button (click)="!isExpanded ? isExpanded = true : isExpanded = false">
+            <span class="material-symbols-outlined" *ngIf="!isExpanded">
+                menu
+            </span>
+            <span class="material-symbols-outlined" *ngIf="isExpanded">
+                close
+            </span>
+        </button>
+        <a routerLink="home" class="app-title-link links" aria-label="Redirect to home">ligue 1</a>
+        <a routerLink="" class="links" id="account-link" aria-label="login">
+            <span class="material-symbols-outlined">
+                account_circle
+            </span>
+        </a>
     </header>
+    <nav class="sidenav" [ngClass]="!isExpanded ? 'sidenav-closed' : 'sidenav-opened'">
+        <ul class="links-list sidenav-links-list">
+            <li>
+                <a routerLink="matches" class="links sidenav-links">calendrier</a>
+            </li>
+            <li>
+                <a routerLink="standings" class="links sidenav-links">classement</a>
+            </li>
+        </ul>
+    </nav>
     <router-outlet></router-outlet>
     <footer>
-        <div class="footer">
-            <div class="ligue-1-link-container">
-                <span class="links ligue-1-link">Site officiel &nbsp;</span>
-                <a href="https://www.ligue1.fr/" target="_blank" class="links ligue-1-link"
-                    aria-label="Redirect to www.ligue1.fr">
-                    <span id="ligue-1"> ligue 1&nbsp;</span>
-                    <span id="uber-eats">uber eats</span>
-                </a>
-            </div>
-            <ul class="social-links-list" aria-label="Social links menu">
-                <li>
-                    <a href="https://www.linkedin.com/in/corentin-radureau/" target="_blank" class="social-links"
-                        aria-label="Redirect to www.linkedin.com">
-                        <img src="../../assets/social-logos/linkedin-logos/LinkedIn-Logos/In/Digital/White/1x/In-White-26.png"
-                            alt="Linkedin logo" class="social-logos">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/co-radu?tab=repositories" target="_blank" class="social-links"
-                        aria-label="Redirect to github.com">
-                        <img src="../../assets/social-logos/github-mark/github-mark-white.svg" alt="Github logo"
-                            class="social-logos">
-                    </a>
-                </li>
-            </ul>
+        <div class="ligue-1-link-container">
+            <span class="links ligue-1-link">Site officiel &nbsp;</span>
+            <a href="https://www.ligue1.fr/" target="_blank" class="links ligue-1-link"
+                aria-label="Redirect to www.ligue1.fr">
+                <span id="ligue-1"> ligue 1&nbsp;</span>
+                <span id="uber-eats">uber eats</span>
+            </a>
         </div>
+        <ul class="links-list" aria-label="Social links menu">
+            <li>
+                <a href="https://www.linkedin.com/in/corentin-radureau/" target="_blank" class="social-links"
+                    aria-label="Redirect to www.linkedin.com">
+                    <img src="../../assets/social-logos/LinkedIn-Logos/In-White-26.png" alt="Linkedin logo"
+                        class="social-logos">
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/co-radu?tab=repositories" target="_blank" class="social-links"
+                    aria-label="Redirect to github.com">
+                    <img src="../../assets/social-logos/github-mark/github-mark-white.svg" alt="Github logo"
+                        class="social-logos">
+                </a>
+            </li>
+        </ul>
     </footer>
 </div>

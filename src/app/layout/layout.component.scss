@@ -1,36 +1,52 @@
 @import '../shared/styles/variables.scss';
 
-.container {
-    min-height: 100vh;
+.app-title-link,
+#ligue-1,
+.sidenav-links {
+    text-transform: uppercase;
+}
+
+.container,
+header,
+footer,
+.links-list {
     display: flex;
+}
+
+footer,
+.container,
+.sidenav-links-list {
     flex-direction: column;
-    justify-content: space-between;
+}
+
+.ligue-1-link,
+.app-title-link,
+.sidenav-links {
+    font-weight: bold;
+}
+
+header,
+footer,
+.sidenav {
+    background-color: $primary;
 }
 
 header,
 footer {
-    background-color: $primary;
-    width: 100vw;
-    height: fit-content;
-    position: relative;
+    align-items: center;
 }
 
-.header,
-.footer {
-    height: 100%;
-    display: flex;
-}
-
-.header {
+.container,
+header {
     justify-content: space-between;
-    padding: 10px 8px;
-    align-items: center;
 }
 
+.container {
+    min-height: 100vh;
+}
 
-.footer {
-    flex-direction: column;
-    align-items: center;
+header {
+    height: $header-height;
 }
 
 .material-symbols-outlined {
@@ -42,6 +58,10 @@ footer {
         'opsz' 48
 }
 
+#account-link {
+    padding: 1px 6px;
+}
+
 .links {
     text-decoration: none;
 }
@@ -51,13 +71,7 @@ footer {
     color: #FFFFFF;
 }
 
-.ligue-1-link,
 .app-title-link {
-    font-weight: bold;
-}
-
-.app-title-link {
-    text-transform: uppercase;
     font-size: 1.5rem;
 }
 
@@ -73,7 +87,6 @@ footer {
 
 #ligue-1 {
     font-size: 1.2rem;
-    text-transform: uppercase;
 }
 
 #uber-eats {
@@ -81,18 +94,34 @@ footer {
     font-weight: normal;
 }
 
-.social-links-list {
-    display: flex;
+.links-list {
     list-style: none;
     padding: 0;
 }
 
 .social-links {
-    display: block;
     margin: 0 12px;
 }
 
 .social-logos {
     height: 26px;
     width: 26px;
+}
+
+// Sidenav
+
+.sidenav {
+    height: calc(100vh - $header-height);
+    width: 100vw;
+    position: absolute;
+    top: $header-height;
+    transition: 0.6s;
+}
+
+.sidenav-closed {
+    left: -100vw;
+}
+
+.sidenav-opened {
+    left: 0;
 }
