@@ -18,13 +18,13 @@
     </header>
     <nav class="sidenav" [ngClass]="!isExpanded ? 'sidenav-closed' : 'sidenav-opened'">
         <ul class="links-list sidenav-links-list">
-            <li>
+            <li routerLinkActive="active">
                 <a routerLink="matches" (click)="isExpanded = false" class="links sidenav-links"
-                    aria-label="Redirect to matches calendar">calendrier</a>
+                    routerLinkActive="links-active" aria-label="Redirect to matches calendar">calendrier</a>
             </li>
-            <li>
+            <li routerLinkActive="active">
                 <a routerLink="standings" (click)="isExpanded = false" class="links sidenav-links"
-                    aria-label="Redirect to standings">classement</a>
+                    routerLinkActive="links-active" aria-label="Redirect to standings">classement</a>
             </li>
         </ul>
     </nav>

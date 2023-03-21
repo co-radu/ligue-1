@@ -20,8 +20,7 @@ footer,
 }
 
 .ligue-1-link,
-.app-title-link,
-.sidenav-links {
+.app-title-link {
     font-weight: bold;
 }
 
@@ -131,7 +130,7 @@ header {
     padding: 0 19px;
 
     li {
-        margin-bottom: 7px;
+        margin-bottom: 12px;
     }
 }
 
@@ -139,9 +138,18 @@ header {
     font-size: 24px;
 }
 
+.links-active {
+    color: $secondary;
+}
+
 // Desktop screen
 
 @media screen and (min-width: 768px) {
+
+    .sidenav-links-list,
+    .sidenav-links {
+        padding: 0 10px;
+    }
 
     .menu {
         visibility: collapse;
@@ -160,10 +168,27 @@ header {
 
         li {
             margin-right: 12px;
+            border-radius: 12px;
         }
     }
 
     .sidenav-links {
         font-size: 20px;
+    }
+
+    .sidenav-links:hover {
+        text-decoration: underline;
+    }
+
+    .active {
+        background-color: $secondary;
+    }
+
+    .links-active {
+        color: $primary;
+    }
+
+    .links-active:hover {
+        text-decoration: none;
     }
 }
