@@ -115,7 +115,7 @@ header {
     width: 100vw;
     position: absolute;
     top: $header-height;
-    transition: 0.6s;
+    transition: 0.5s;
 }
 
 .sidenav-closed {
@@ -142,9 +142,9 @@ header {
     color: $secondary;
 }
 
-// Desktop screen
+// Medium screen
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $medium) {
 
     .sidenav-links-list,
     .sidenav-links {
@@ -156,8 +156,10 @@ header {
     }
 
     .sidenav {
+        position: relative;
+        top: 0;
         left: 0;
-        height: fit-content;
+        height: $sidenav-height;
         transition: none;
     }
 

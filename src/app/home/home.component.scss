@@ -1,5 +1,7 @@
 @import '../shared/styles/variables.scss';
 
+// Matches list of current matchday.
+
 $margin-list: 22px;
 
 .matches-of-day,
@@ -43,9 +45,15 @@ $margin-list: 22px;
   width: 76px;
 }
 
-.home-team,
-.away-team {
-  justify-content: space-around;
+.match,
+.score {
+  justify-content: center;
+}
+
+.score,
+.tla,
+.short-name {
+  color: gray;
 }
 
 .current-matchday {
@@ -70,8 +78,21 @@ $margin-list: 22px;
   margin: $margin-list 0 0 0;
 }
 
-.match {
-  justify-content: center;
+.winner {
+  color: #111111;
+  font-weight: bold;
+}
+
+.home-team {
+  justify-content: flex-end;
+}
+
+.away-team {
+  justify-content: flex-start;
+}
+
+.short-name {
+  display: none;
 }
 
 .club-logo {
@@ -79,10 +100,32 @@ $margin-list: 22px;
   height: 24px;
 }
 
-.score {
-  justify-content: center;
+.home-logo {
+  margin-left: 10px;
+}
+
+.away-logo {
+  margin-right: 10px;
 }
 
 .matches-list .match {
   margin-bottom: $margin-list;
+}
+
+// Medium screen
+
+@media screen and (min-width: $medium) {
+
+  .tla {
+    display: none;
+  }
+
+  .short-name {
+    display: flex;
+  }
+
+  .home-team,
+  .away-team {
+    width: 220px;
+  }
 }
