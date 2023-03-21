@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Match } from '../shared/models/matches/match';
 import { MatchesService } from '../shared/services/matches/matches.service';
 import { SeasonService } from '../shared/services/season/season.service';
@@ -8,10 +8,11 @@ import { SeasonService } from '../shared/services/season/season.service';
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
 	public matchesOfCurrentMatchday!: Match[];
-	public currentMatchday: number = 1;
+	public currentMatchday!: number;
+	public matchDateArray: Date[] = [];
 
 	constructor(
 		private seasonService: SeasonService,
@@ -21,12 +22,16 @@ export class HomeComponent implements OnInit {
 			this.currentMatchday = currentMatchday;
 			this.matchesService.getMatchesOfCurrentMatchday(currentMatchday).subscribe((matchesOfCurrentMatchday: Match[]) => {
 				this.matchesOfCurrentMatchday = matchesOfCurrentMatchday;
+				this.matchesOfCurrentMatchday.forEach((match: Match) => {
+					if (!this.matchDateArray.find((matchDate: Date) => match.utcDate.getDate() === matchDate.getDate() && match.utcDate.getMonth() === matchDate.getMonth())) {
+						this.matchDateArray.push(match.utcDate);
+					}
+				});
 			});
 		});
 	}
 
-	ngOnInit(): void {
-
+	fetchMatchesOfDate(date: Date): Match[] {
+		return this.matchesOfCurrentMatchday.filter((match: Match) => match.utcDate.getDate() === date.getDate() && match.utcDate.getMonth() === date.getMonth());
 	}
-
 }

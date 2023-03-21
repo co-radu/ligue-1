@@ -1,207 +1,88 @@
-:host {
+@import '../shared/styles/variables.scss';
+
+$margin-list: 22px;
+
+.matches-of-day,
+.match-date,
+.matches-list,
+.match {
   width: 100%;
-  display: grid;
 }
 
-.container {
+.container-matchday,
+.matches-of-day,
+.match,
+.home-team,
+.score,
+.away-team {
   display: flex;
 }
 
-.card {
-  background-color: white;
-  width: 550px;
-  height: 675px;
-  margin: 200px 30px 0 30px;
-  border-radius: 10px;
-  overflow: auto;
+.container-matchday,
+.matches-of-day,
+.home-team,
+.score,
+.away-team {
+  align-items: center;
 }
 
-.card__buttons {
-  height: 56px;
-  display: flex;
+.container-matchday,
+.matches-of-day {
+  flex-direction: column;
+
 }
 
-.card__buttons__toggle {
-  background-color: white;
+.current-matchday,
+.match-date {
+  background-color: $primary;
 }
 
-.card__buttons__released {
-  background-color: #091c3e;
-  color: white;
+.score,
+.home-team,
+.away-team {
+  width: 76px;
 }
 
-.card__buttons__toggle,
-.card__buttons__released {
-  width: 50%;
-  border: none;
-  cursor: pointer;
-  text-transform: uppercase;
+.home-team,
+.away-team {
+  justify-content: space-around;
+}
+
+.current-matchday {
+  text-align: center;
   font-weight: bold;
+  color: $secondary;
+  margin: 12px 0;
+  padding: 6px 35px;
+  border-radius: 15px;
 }
 
-.card__buttons__toggle:focus,
-.card__buttons__released:focus,
-.news-card__button {
-  outline: none;
+.match-date {
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+  padding: 6px 0;
 }
 
-.card__buttons button:first-child {
-  border-top-left-radius: 10px;
-}
-
-.card__buttons button:last-child {
-  border-top-right-radius: 10px;
-}
-
-.card__matchesList {
+.matches-list {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+  margin: $margin-list 0 0 0;
 }
 
-.card__matchesList__matchDaySelector {
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 56px;
-}
-
-.card__matchesList__match__clubs {
-  display: flex;
-  width: 100%;
-  font-size: 14px;
-  margin: 20px 0;
-}
-
-.card__matchesList__match__clubs__homeTeam,
-.card__matchesList__match__clubs__awayTeam {
-  width: 50%;
-  display: flex;
-}
-
-.card__matchesList__match__clubs__homeTeam {
-  justify-content: flex-end;
-}
-
-.card__matchesList__match__clubs__score {
-  display: flex;
-  justify-content: center;
-  margin: 0 15px;
-  font-weight: bold;
-  min-width: 30px;
-}
-
-.card__ranking {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.card__ranking tr {
-  height: 56px;
-  font-size: 14px;
-  border-bottom: 1px solid #dddddd;
-}
-
-.card__ranking tr:last-child {
-  border-bottom: none;
-}
-
-.card__ranking td:first-child,
-td:nth-child(3),
-td:last-child {
-  text-align: center;
-}
-
-.card__ranking td:nth-child(2) {
-  width: 380px;
-}
-
-.card__ranking tr:nth-child(2),
-tr:nth-child(3) {
-  background-color: #02163c;
-  color: white;
-}
-
-.card__ranking tr:last-child,
-tr:nth-last-child(2) {
-  background-color: #bd0000;
-  color: white;
-}
-
-.card__ranking tr:nth-child(4),
-tr:nth-child(5) {
-  background-color: #808a9d;
-}
-
-.card__ranking tr:nth-last-child(3) {
-  background-color: #de7f7f;
-}
-
-.news-container {
-  width: calc(100vw - 640px);
-  margin: 170px 0 0 0;
-  display: flex;
-  flex-wrap: wrap;
+.match {
   justify-content: center;
 }
 
-.news-card {
-  background-color: white;
-  width: 300px;
-  padding-bottom: 50px;
-  border-radius: 10px;
-  margin: 30px;
+.club-logo {
+  height: 24px;
+  height: 24px;
 }
 
-.news-card__button {
-  position: absolute;
-  background: #091c3e;
-  border: none;
-  width: 40px;
-  height: 35px;
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-  cursor: pointer;
-  border-top-left-radius: 10px;
+.score {
+  justify-content: center;
 }
 
-.news-card__image {
-  width: 100%;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
-
-.news-card__main {
-  margin: 1em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media screen and (max-width: 800px) {
-  .card {
-    display: none;
-  }
-
-  .news-container {
-    width: 100%;
-    margin: 117px 0 0 0;
-  }
-
-  .news-card {
-    background-color: #091c3e;
-    color: white;
-  }
-
-  @media screen and (max-width: 450px) {
-    .news-container {
-      margin: 88px 0 0 0;
-    }
-  }
+.matches-list .match {
+  margin-bottom: $margin-list;
 }

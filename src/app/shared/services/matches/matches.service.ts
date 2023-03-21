@@ -16,6 +16,11 @@ export class MatchesService {
   constructor(private http: HttpClient) { }
 
   getMatchesOfCurrentMatchday(currentMatchday: number): Observable<Match[]> {
-    return this.http.get<MatchesList>(`${this.apiUrl}/matches?matchday=${currentMatchday}`).pipe(map((matchesList: MatchesList) => matchesList.matches));
+    return this.http.get<MatchesList>(`${this.apiUrl}/matches?matchday=${currentMatchday}`).pipe(map((matchesList: MatchesList) => {
+      matchesList.matches.forEach((match: Match) => {
+        match.utcDate = new Date(match.utcDate);
+      });
+      return matchesList.matches
+    }));
   }
 }

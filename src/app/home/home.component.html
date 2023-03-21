@@ -1,47 +1,26 @@
-<div class="container">
-    <div class="card">
-        <div class="card__buttons">
-            <ul class="card__matchesList">
-                <div class="card__matchesList__matchDaySelector">
-                    Journée {{ currentMatchday}}
+<div class="container-matchday" *ngIf="matchesOfCurrentMatchday">
+    <div class="current-matchday">
+        Journée {{ currentMatchday}}
+    </div>
+    <div *ngFor="let matchDate of matchDateArray" class="matches-of-day">
+        <div class="match-date">
+            {{matchDate | date:'EEEE d MMMM YYYY': 'fr-FR'}}
+        </div>
+        <ul class="matches-list">
+            <li class="match" *ngFor="let match of fetchMatchesOfDate(matchDate)">
+                <div class="home-team">
+                    {{ match.homeTeam.tla | uppercase}}
+                    <img [src]="match.homeTeam.crest" class="club-logo" alt="Logo of home team">
                 </div>
-                <li *ngFor="let match of matchesOfCurrentMatchday" class="card__matchesList__match">
-                    <div class="card__matchesList__match__clubs">
-                        <div class="card__matchesList__match__clubs__homeTeam">
-                            {{ match.homeTeam.name | uppercase}}
-                        </div>
-                        <div class="card__matchesList__match__clubs__score">
-                            {{ match.score.fullTime.home }} -
-                            {{ match.score.fullTime.away }}
-                        </div>
-                        <div class="card__matchesList__match__clubs__awayTeam">
-                            {{ match.awayTeam.name | uppercase}}
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <!-- <table class="card__ranking" *ngIf="resultsModeOn == false">
-                <tr>
-                    <th *ngFor="let headerTab of headersTab">
-                        {{headerTab | uppercase}}
-                    </th>
-                </tr>
-                <tr *ngFor="let row of rowsTab">
-                    <td *ngFor="let index of indexTab">
-                        {{row[index]}}
-                    </td>
-                </tr>
-            </table> -->
-        </div>
-        <!-- <div class="news-container">
-            <div class="news-card" *ngFor="let actu of news">
-                <button class="news-card__button">
-                    +
-                </button>
-                <img [src]="actu.img" class="news-card__image">
-                <p class="news-card__main">
-                    {{ actu.main }}
-                </p>
-            </div>
-        </div>
-    </div> -->
+                <div class="score">
+                    {{ match.score.fullTime.home }} -
+                    {{ match.score.fullTime.away }}
+                </div>
+                <div class="away-team">
+                    <img [src]="match.awayTeam.crest" class="club-logo" alt="Logo of away team">
+                    {{ match.awayTeam.tla | uppercase}}
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
