@@ -59,6 +59,7 @@ header {
 }
 
 #account-link {
+    visibility: collapse; //Work in progress! Available on v0.2! 
     padding: 1px 6px;
 }
 
@@ -124,4 +125,45 @@ header {
 
 .sidenav-opened {
     left: 0;
+}
+
+.sidenav-links-list {
+    padding: 0 19px;
+
+    li {
+        margin-bottom: 7px;
+    }
+}
+
+.sidenav-links {
+    font-size: 24px;
+}
+
+// Desktop screen
+
+@media screen and (min-width: 768px) {
+
+    .menu {
+        visibility: collapse;
+    }
+
+    .sidenav {
+        left: 0;
+        height: fit-content;
+        transition: none;
+    }
+
+    .sidenav-links-list {
+        flex-direction: row;
+        margin: 0;
+        padding-left: 7px;
+
+        li {
+            margin-right: 12px;
+        }
+    }
+
+    .sidenav-links {
+        font-size: 20px;
+    }
 }

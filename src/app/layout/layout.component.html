@@ -1,6 +1,6 @@
 <div class="container">
     <header>
-        <button (click)="!isExpanded ? isExpanded = true : isExpanded = false">
+        <button (click)="isExpanded ? isExpanded = false : isExpanded =true" class="menu">
             <span class="material-symbols-outlined" *ngIf="!isExpanded">
                 menu
             </span>
@@ -8,7 +8,8 @@
                 close
             </span>
         </button>
-        <a routerLink="home" class="app-title-link links" aria-label="Redirect to home">ligue 1</a>
+        <a routerLink="home" (click)="isExpanded = false" class="app-title-link links"
+            aria-label="Redirect to home">ligue 1</a>
         <a routerLink="" class="links" id="account-link" aria-label="login">
             <span class="material-symbols-outlined">
                 account_circle
@@ -18,10 +19,12 @@
     <nav class="sidenav" [ngClass]="!isExpanded ? 'sidenav-closed' : 'sidenav-opened'">
         <ul class="links-list sidenav-links-list">
             <li>
-                <a routerLink="matches" class="links sidenav-links">calendrier</a>
+                <a routerLink="matches" (click)="isExpanded = false" class="links sidenav-links"
+                    aria-label="Redirect to matches calendar">calendrier</a>
             </li>
             <li>
-                <a routerLink="standings" class="links sidenav-links">classement</a>
+                <a routerLink="standings" (click)="isExpanded = false" class="links sidenav-links"
+                    aria-label="Redirect to standings">classement</a>
             </li>
         </ul>
     </nav>
