@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { StandingsComponent } from './standings/standings.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MatchesListComponent } from './shared/components/matches-list/matches-list.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MatchesListComponent } from './shared/components/matches-list/matches-l
     CalendarResultsComponent,
     HomeComponent,
     LayoutComponent,
-    MatchesListComponent
+    MatchesListComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

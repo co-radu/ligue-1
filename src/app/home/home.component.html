@@ -1,2 +1,5 @@
-<app-matches-list [matchesOfCurrentMatchday]="matchesOfCurrentMatchday" [currentMatchday]="currentMatchday"
-    [matchDateArray]="matchDateArray"></app-matches-list>
+<app-matches-list *ngIf="matchesOfCurrentMatchday && currentMatchday"
+    [matchesOfCurrentMatchday]="matchesOfCurrentMatchday" [currentMatchday]="currentMatchday"
+    [matchDateArray]="matchDateArray">
+</app-matches-list>
+<app-loader *ngIf="!matchesOfCurrentMatchday"></app-loader>
