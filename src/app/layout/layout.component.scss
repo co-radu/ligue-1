@@ -6,7 +6,6 @@
     text-transform: uppercase;
 }
 
-.container,
 .headers,
 .links-list {
     display: flex;
@@ -15,11 +14,6 @@
 .headers,
 .links-list {
     align-items: center;
-}
-
-.container,
-.sidenav-links-list {
-    flex-direction: column;
 }
 
 .ligue-1-link,
@@ -43,10 +37,6 @@
     margin-left: auto;
 }
 
-.container {
-    min-height: 100vh;
-}
-
 .material-symbols-outlined {
     line-height: normal;
     font-variation-settings:
@@ -59,11 +49,6 @@
 #account-link {
     visibility: collapse; //Work in progress! Available on v0.2! 
     padding: 1px 6px;
-}
-
-.links-list {
-    list-style: none;
-    padding: 0;
 }
 
 .links {
@@ -111,14 +96,12 @@
     width: 26px;
 }
 
-// Sidenav
-
 .sidenav {
-    height: calc(100vh - $header-height);
+    height: calc(100% - $header-height);
     width: 100vw;
     position: absolute;
     top: $header-height;
-    transition: 0.5s;
+    transition: 0.4s;
     background-color: $primary;
 }
 
@@ -127,15 +110,17 @@
 }
 
 .sidenav-opened {
+    height: 100%;
     left: 0;
 }
 
 .sidenav-links-list {
+    flex-direction: column;
     padding: 0 19px;
+}
 
-    li {
-        margin-bottom: 12px;
-    }
+.links-container {
+    margin-bottom: 12px;
 }
 
 .sidenav-links {
@@ -175,12 +160,11 @@
         max-width: 1000px;
         flex-direction: row;
         margin: 0;
-        padding-left: 7px;
+    }
 
-        li {
-            margin-right: 12px;
-            border-radius: 12px;
-        }
+    .links-container {
+        margin: 0 12px 0 0;
+        border-radius: 12px;
     }
 
     .sidenav-links {
