@@ -7,6 +7,7 @@ import { CalendarResultsComponent } from './calendar-results/calendar-results.co
 import { HomeComponent } from './home/home.component';
 import { StandingsComponent } from './standings/standings.component';
 import { LayoutComponent } from './layout/layout.component';
+import { MatchesListComponent } from './shared/components/matches-list/matches-list.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LayoutComponent } from './layout/layout.component';
     StandingsComponent,
     CalendarResultsComponent,
     HomeComponent,
-    LayoutComponent
+    LayoutComponent,
+    MatchesListComponent
   ],
   imports: [
     BrowserModule,

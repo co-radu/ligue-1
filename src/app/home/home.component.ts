@@ -30,8 +30,4 @@ export class HomeComponent {
 			});
 		});
 	}
-
-	fetchMatchesOfDate(date: Date): Match[] {
-		return this.matchesOfCurrentMatchday.filter((match: Match) => match.utcDate.getDate() === date.getDate() && match.utcDate.getMonth() === date.getMonth());
-	}
 }

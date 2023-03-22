@@ -1,0 +1,38 @@
+<div class="container-matchday" *ngIf="matchesOfCurrentMatchday">
+    <div class="current-matchday">
+        Journée {{ currentMatchday}}
+    </div>
+    <div *ngFor="let matchDate of matchDateArray" class="matches-of-day">
+        <div class="match-date">
+            {{matchDate | date: 'EEEE d MMMM YYYY': 'fr-FR'}}
+        </div>
+        <ul class="matches-list">
+            <li class="match" *ngFor="let match of fetchMatchesOfDate(matchDate)">
+                <div class="home-team">
+                    <span class="tla" [ngClass]="{'winner': match.score.winner === 'HOME_TEAM'}">{{ match.homeTeam.tla |
+                        uppercase}}</span>
+                    <span class="short-name" [ngClass]="{'winner': match.score.winner === 'HOME_TEAM'}">{{
+                        match.homeTeam.shortName | uppercase}}</span>
+                    <img [src]="match.homeTeam.crest" class="club-logo home-logo" alt="Logo of home team">
+                </div>
+                <div class="score" *ngIf="match.status === 'FINISHED'">
+                    <span [ngClass]="{'winner': match.score.winner === 'HOME_TEAM'}">{{ match.score.fullTime.home
+                        }}</span>
+                    &nbsp;-&nbsp;
+                    <span [ngClass]="{'winner': match.score.winner === 'AWAY_TEAM'}">{{ match.score.fullTime.away
+                        }}</span>
+                </div>
+                <div class="score" *ngIf="match.status === 'TIMED'">
+                    {{match.utcDate | date: 'H:mm': 'fr-FR'}}
+                </div>
+                <div class="away-team">
+                    <img [src]="match.awayTeam.crest" class="club-logo away-logo" alt="Logo of away team">
+                    <span class="tla" [ngClass]="{'winner': match.score.winner === 'AWAY_TEAM'}">{{ match.awayTeam.tla |
+                        uppercase}}</span>
+                    <span class="short-name" [ngClass]="{'winner': match.score.winner === 'AWAY_TEAM'}">{{
+                        match.awayTeam.shortName | uppercase}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
