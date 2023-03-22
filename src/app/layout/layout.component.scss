@@ -7,13 +7,16 @@
 }
 
 .container,
-header,
-footer,
+.headers,
 .links-list {
     display: flex;
 }
 
-footer,
+.headers,
+.links-list {
+    align-items: center;
+}
+
 .container,
 .sidenav-links-list {
     flex-direction: column;
@@ -24,28 +27,24 @@ footer,
     font-weight: bold;
 }
 
-header,
-footer,
-.sidenav {
-    background-color: $primary;
+.headers,
+.footers {
+    width: 100%;
+    max-width: 1000px;
 }
 
-header,
-footer {
-    align-items: center;
-}
-
-.container,
-header {
+.headers {
+    height: 100%;
     justify-content: space-between;
+}
+
+.footers {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .container {
     min-height: 100vh;
-}
-
-header {
-    height: $header-height;
 }
 
 .material-symbols-outlined {
@@ -60,6 +59,11 @@ header {
 #account-link {
     visibility: collapse; //Work in progress! Available on v0.2! 
     padding: 1px 6px;
+}
+
+.links-list {
+    list-style: none;
+    padding: 0;
 }
 
 .links {
@@ -94,9 +98,8 @@ header {
     font-weight: normal;
 }
 
-.links-list {
-    list-style: none;
-    padding: 0;
+.social-links-list {
+    justify-content: flex-end;
 }
 
 .social-links {
@@ -116,6 +119,7 @@ header {
     position: absolute;
     top: $header-height;
     transition: 0.5s;
+    background-color: $primary;
 }
 
 .sidenav-closed {
@@ -156,14 +160,19 @@ header {
     }
 
     .sidenav {
+        display: flex;
         position: relative;
         top: 0;
         left: 0;
         height: $sidenav-height;
         transition: none;
+        justify-content: center;
     }
 
     .sidenav-links-list {
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 1000px;
         flex-direction: row;
         margin: 0;
         padding-left: 7px;
