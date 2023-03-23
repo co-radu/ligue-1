@@ -1,6 +1,6 @@
-import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { StandingsDescription } from '../../models/season/standings-description';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Standing } from '../../models/season/standing';
+import { StandingsDescription } from '../../models/season/standings-description';
 
 @Component({
   selector: 'app-standings[standingsDescription]',
