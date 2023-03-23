@@ -9,6 +9,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { MatchesListComponent } from './shared/components/matches-list/matches-list.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { StandingsComponent } from './shared/components/standings/standings.component';
+import { StandingsFormColorsPipe } from './shared/pipes/standings-colors/standings-form-colors.pipe';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { StandingsComponent } from './shared/components/standings/standings.comp
     LayoutComponent,
     MatchesListComponent,
     LoaderComponent,
-    StandingsComponent
+    StandingsComponent,
+    StandingsFormColorsPipe
   ],
   imports: [
     BrowserModule,

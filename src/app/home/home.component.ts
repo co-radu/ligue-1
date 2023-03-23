@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnDestroy {
 
-	private subscription1$: Subscription;
+	private subscription1$!: Subscription;
 	private subscription2$!: Subscription;
 	private subscription3$: Subscription;
 	private subscriptions: Subscription[] = [];
@@ -27,7 +27,7 @@ export class HomeComponent implements OnDestroy {
 		private seasonService: SeasonService,
 		private matchesService: MatchesService,
 	) {
-		this.subscription1$ = this.seasonService.getCurrentMatchday().subscribe(
+		/* this.subscription1$ = this.seasonService.getCurrentMatchday().subscribe(
 			(currentMatchday: number) => {
 				this.currentMatchday = currentMatchday;
 				this.subscription2$ = this.matchesService.getMatchesOfCurrentMatchday(currentMatchday).subscribe((matchesOfCurrentMatchday: Match[]) => {
@@ -39,7 +39,7 @@ export class HomeComponent implements OnDestroy {
 					});
 				});
 				this.subscriptions.push(this.subscription2$);
-			});
+			}); */
 		this.subscription3$ = this.seasonService.getStandingsDescription().subscribe((standingsDescription: StandingsDescription) => {
 			this.standingsDescription = standingsDescription;
 		});

@@ -1,1 +1,43 @@
-<p>standings works!</p>
+<table>
+    <thead>
+        <tr>
+            <th> position </th>
+            <th> club </th>
+            <th> points </th>
+            <th> joués </th>
+            <th> gagnés </th>
+            <th> nuls </th>
+            <th> perdus </th>
+            <th> buts marqués </th>
+            <th>but pris </th>
+            <th>différence</th>
+            <th>forme</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let teamPosition of standingTable">
+            <td class="bold">{{teamPosition.position}}</td>
+            <td>
+                <div class="club-container">
+                    <img [src]="teamPosition.team.crest" class="club-logo" alt="">
+                    <span class="bold team-name">{{teamPosition.team.name}}</span>
+                </div>
+            </td>
+            <td class="bold">{{teamPosition.points}}</td>
+            <td>{{teamPosition.playedGames}}</td>
+            <td>{{teamPosition.won}}</td>
+            <td>{{teamPosition.draw}}</td>
+            <td>{{teamPosition.lost}}</td>
+            <td>{{teamPosition.goalsFor}}</td>
+            <td>{{teamPosition.goalsAgainst}}</td>
+            <td>{{teamPosition.goalDifference}}</td>
+            <td>
+                <div class="form-container">
+                    <div *ngFor="let color of teamPosition.form | standingsFormColors"
+                        [ngStyle]="{'background-color': color}" class="standings-form">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
