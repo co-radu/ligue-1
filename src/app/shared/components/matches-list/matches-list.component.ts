@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Match } from '../../models/matches/match';
 
 @Component({
-  selector: 'app-matches-list',
+  selector: 'app-matches-list[matchesOfCurrentMatchday][currentMatchday][matchDateArray]',
   templateUrl: './matches-list.component.html',
   styleUrls: ['./matches-list.component.scss']
 })

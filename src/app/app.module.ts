@@ -5,21 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CalendarResultsComponent } from './calendar-results/calendar-results.component';
 import { HomeComponent } from './home/home.component';
-import { StandingsComponent } from './standings/standings.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MatchesListComponent } from './shared/components/matches-list/matches-list.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { StandingsComponent } from './shared/components/standings/standings.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    StandingsComponent,
     CalendarResultsComponent,
     HomeComponent,
     LayoutComponent,
     MatchesListComponent,
-    LoaderComponent
+    LoaderComponent,
+    StandingsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,8 @@
 import { Season } from "./season";
 import { Standing } from "./standing";
 
-export class StandingsDescription {
+export abstract class StandingsDescription {
 
-    season: Season
-    standings: Standing[]
-
-    constructor(season: Season, standings: Standing[]) {
-        this.season = season
-        this.standings = standings
-    }
-
+    abstract season: Season
+    abstract standings: Standing[]
 }

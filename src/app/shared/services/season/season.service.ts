@@ -19,10 +19,6 @@ export class SeasonService {
     return this.http.get<StandingsDescription>(`${this.apiUrl}/standings`);
   }
 
-  getGlobalStanding(): Observable<Standing> {
-    return this.getStandingsDescription().pipe(map((standingsDescrition: StandingsDescription) => <Standing>standingsDescrition.standings.find((standing: Standing) => { standing.type === "TOTAL" })));
-  }
-
   getCurrentMatchday(): Observable<number> {
     return this.getStandingsDescription().pipe(map((standingsDescription: StandingsDescription) => <number>standingsDescription.season.currentMatchday));
   }

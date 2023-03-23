@@ -1,8 +1,8 @@
-import { TeamResults } from './team-results';
+import { TeamPosition } from "./team-position";
 
 export abstract class Standing {
 
     abstract stage: string;
     abstract type: string;
-    abstract table: TeamResults[];
+    abstract table: TeamPosition[];
 }
