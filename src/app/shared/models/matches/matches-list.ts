@@ -1,5 +1,5 @@
 import { Match } from "./match";
 
-export abstract class MatchesList {
-    abstract matches: Match[];
+export interface MatchesList {
+    matches: Match[];
 }

@@ -15,7 +15,7 @@ import { SeasonService } from '../shared/services/season/season.service';
 })
 export class HomeComponent implements OnDestroy {
 
-	private sub1$: Subscription;
+	private getStandingDescriptionSub$: Subscription;
 	private subscription2$!: Subscription;
 	private subscriptions: Subscription[] = [];
 
@@ -24,16 +24,17 @@ export class HomeComponent implements OnDestroy {
 	public matchDateArray: Date[] = [];
 
 	public standingTable!: TeamPosition[];
+	public headers: string[] = ['pos', 'club', 'pts', 'j'];
 
 	constructor(
 		private seasonService: SeasonService,
 		private matchesService: MatchesService,
 	) {
-		this.sub1$ = this.seasonService.getStandingsDescription().subscribe((standingsDesc: StandingsDescription) => {
+		this.getStandingDescriptionSub$ = this.seasonService.getStandingsDescription().subscribe((standingsDesc: StandingsDescription) => {
 			this.currentMatchday = standingsDesc.season.currentMatchday;
 			this.standingTable = <TeamPosition[]>standingsDesc.standings.find((standing: Standing) => standing.type === StandingsTypes.TOTAL)?.table;
 		});
-		this.subscriptions.push(this.sub1$);
+		this.subscriptions.push(this.getStandingDescriptionSub$);
 		/* this.subscription1$ = this.seasonService.getCurrentMatchday().subscribe(
 			(currentMatchday: number) => {
 				this.currentMatchday = currentMatchday;

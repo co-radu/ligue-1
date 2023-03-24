@@ -1,4 +1,5 @@
-<app-standings *ngIf="standingTable" [dataStandingTable]="standingTable | standing:'small'"></app-standings>
+<app-standings *ngIf="standingTable" [dataStandingTable]="standingTable | standing:'small'"
+    [headers]="headers"></app-standings>
 <!-- <app-matches-list *ngIf="matchesOfCurrentMatchday && currentMatchday"
     [matchesOfCurrentMatchday]="matchesOfCurrentMatchday" [currentMatchday]="currentMatchday"
     [matchDateArray]="matchDateArray">

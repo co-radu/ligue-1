@@ -6,7 +6,7 @@ import { Colors } from '../../constants/colors';
 })
 export class StandingsFormColorsPipe implements PipeTransform {
 
-  transform(formOfTeam: string): unknown[] {
+  transform(formOfTeam: string): Colors[] {
     return formOfTeam.toLowerCase().split(',').reverse().map(
       (formOfTeam: string) => {
         switch (formOfTeam) {
