@@ -1,8 +1,8 @@
 import { TeamPosition } from "./team-position";
 
-export abstract class Standing {
+export interface Standing {
 
-    abstract stage: string;
-    abstract type: string;
-    abstract table: TeamPosition[];
+    stage: string;
+    type: string;
+    table: TeamPosition[];
 }

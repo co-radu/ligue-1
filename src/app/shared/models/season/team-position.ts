@@ -1,16 +1,42 @@
 import { Team } from "../team/team";
 
-export abstract class TeamPosition {
+export class TeamPosition {
 
-    abstract position: number;
-    abstract team: Team;
-    abstract playedGames: number;
-    abstract form: string;
-    abstract won: number;
-    abstract draw: number;
-    abstract lost: number;
-    abstract points: number;
-    abstract goalsFor: number;
-    abstract goalsAgainst: number;
-    abstract goalDifference: number;
+    position: number;
+    team: Team;
+    points: number;
+    playedGames: number;
+    won?: number;
+    draw?: number;
+    lost?: number;
+    goalsFor?: number;
+    goalsAgainst?: number;
+    goalDifference?: number;
+    form?: string;
+
+    constructor(
+        position: number,
+        team: Team,
+        points: number,
+        playedGames: number,
+        won?: number,
+        draw?: number,
+        lost?: number,
+        goalsFor?: number,
+        goalsAgainst?: number,
+        goalDifference?: number,
+        form?: string,
+    ) {
+        this.position = position;
+        this.team = team;
+        this.points = points;
+        this.playedGames = playedGames;
+        this.won = won;
+        this.draw = draw;
+        this.lost = lost;
+        this.goalsFor = goalsFor;
+        this.goalsAgainst = goalsAgainst;
+        this.goalDifference = goalDifference;
+        this.form = form;
+    }
 }

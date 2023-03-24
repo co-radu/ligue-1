@@ -1,8 +1,8 @@
 import { Season } from "./season";
 import { Standing } from "./standing";
 
-export abstract class StandingsDescription {
+export interface StandingsDescription {
 
-    abstract season: Season
-    abstract standings: Standing[]
+    season: Season
+    standings: Standing[]
 }
