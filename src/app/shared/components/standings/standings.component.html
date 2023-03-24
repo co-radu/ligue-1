@@ -1,37 +1,30 @@
 <table>
     <thead>
         <tr>
-            <th> position </th>
-            <th> club </th>
-            <th> points </th>
-            <th> joués </th>
-            <th> gagnés </th>
-            <th> nuls </th>
-            <th> perdus </th>
-            <th> buts marqués </th>
-            <th>but pris </th>
-            <th>différence</th>
-            <th>forme</th>
+            <th scope="col" [id]="'header_'+i" *ngFor="let header of headers; let i = index">
+                {{header}}
+            </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let teamPosition of standingTable">
+        <tr *ngFor="let teamPosition of dataStandingTable">
             <td class="bold">{{teamPosition.position}}</td>
             <td>
                 <div class="club-container">
                     <img [src]="teamPosition.team.crest" class="club-logo" alt="">
+                    <span class="bold team-short-name">{{teamPosition.team.shortName}}</span>
                     <span class="bold team-name">{{teamPosition.team.name}}</span>
                 </div>
             </td>
             <td class="bold">{{teamPosition.points}}</td>
             <td>{{teamPosition.playedGames}}</td>
-            <td>{{teamPosition.won}}</td>
-            <td>{{teamPosition.draw}}</td>
-            <td>{{teamPosition.lost}}</td>
-            <td>{{teamPosition.goalsFor}}</td>
-            <td>{{teamPosition.goalsAgainst}}</td>
-            <td>{{teamPosition.goalDifference}}</td>
-            <td>
+            <td *ngIf="teamPosition.won">{{teamPosition.won}}</td>
+            <td *ngIf="teamPosition.draw">{{teamPosition.draw}}</td>
+            <td *ngIf="teamPosition.lost">{{teamPosition.lost}}</td>
+            <td *ngIf="teamPosition.goalsFor">{{teamPosition.goalsFor}}</td>
+            <td *ngIf="teamPosition.goalsAgainst">{{teamPosition.goalsAgainst}}</td>
+            <td id="header_10" *ngIf="teamPosition.goalDifference">{{teamPosition.goalDifference}}</td>
+            <td *ngIf="teamPosition.form">
                 <div class="form-container">
                     <div *ngFor="let color of teamPosition.form | standingsFormColors"
                         [ngStyle]="{'background-color': color}" class="standings-form">

@@ -1,29 +1,23 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Standing } from '../../models/season/standing';
-import { StandingsDescription } from '../../models/season/standings-description';
+import { Component, Input, OnInit } from '@angular/core';
+import { StandingsSizes } from '../../constants/standings-sizes';
 import { TeamPosition } from '../../models/season/team-position';
 
 @Component({
-  selector: 'app-standings[standingsDescription]',
+  selector: 'app-standings[dataStandingTable]',
   templateUrl: './standings.component.html',
   styleUrls: ['./standings.component.scss']
 })
-export class StandingsComponent implements OnChanges {
+export class StandingsComponent implements OnInit {
 
-  @Input() standingsDescription!: StandingsDescription;
+  @Input() dataStandingTable!: TeamPosition[];
 
-  @Input() type: string = "TOTAL"; // 3 Types are possibles: "TOTAL", "HOME" and "AWAY".
-
-  @Input() standingSize: string = "full"; // 3 Sizes are possibles: "full", "medium" and "small".
+  @Input() standingSize: StandingsSizes = StandingsSizes.full;
 
   public standingTable?: TeamPosition[];
+  public headers!: string[];
 
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.standingsDescription = changes['standingsDescription'].currentValue;
-    if (this.standingsDescription) {
-      const standingToDisplay: Standing = <Standing>this.standingsDescription.standings.find((standing: Standing) => standing.type === this.type);
-      this.standingTable = standingToDisplay.table;
-    }
+  ngOnInit(): void {
+    this.headers = Object.keys(this.dataStandingTable[0]).map((header: string) => header = header.replace(/([A-Z])/g, ' $1'));
   }
+
 }
