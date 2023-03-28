@@ -1,7 +1,5 @@
 @import '../../styles/variables.scss';
 
-// Matches list of current matchday.
-
 $margin-list: 22px;
 
 .matches-of-day,
@@ -53,7 +51,7 @@ $margin-list: 22px;
 .score,
 .tla,
 .short-name {
-    color: gray;
+    color: $gray;
 }
 
 .current-matchday {
@@ -63,6 +61,7 @@ $margin-list: 22px;
     margin: 12px 0;
     padding: 6px 35px;
     border-radius: 15px;
+    text-transform: capitalize;
 }
 
 .match-date {
@@ -93,6 +92,7 @@ $margin-list: 22px;
 
 .short-name {
     display: none;
+    text-transform: uppercase;
 }
 
 .club-logo {

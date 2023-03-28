@@ -1,9 +1,10 @@
+import { Winners } from "../../constants/winners";
 import { TimeScore } from "./time-score";
 
 export interface Score {
 
-    winner: string;
+    winner: Winners;
     duration: string;
-    extraTime: TimeScore;
+    halfTime: TimeScore;
     fullTime: TimeScore;
 }

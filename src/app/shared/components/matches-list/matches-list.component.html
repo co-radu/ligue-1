@@ -1,37 +1,40 @@
-<div class="container-matchday" *ngIf="matchesOfCurrentMatchday">
+<div class="container-matchday" *ngIf="matchesListData">
     <div class="current-matchday">
-        Journée {{ currentMatchday}}
+        journée {{ matchesListData[0].matchday}}
     </div>
-    <div *ngFor="let matchDate of matchDateArray" class="matches-of-day">
+    <div *ngFor="let matchesDate of getMatchesDates()" class="matches-of-day">
         <div class="match-date">
-            {{matchDate | date: 'EEEE d MMMM YYYY': 'fr-FR'}}
+            {{matchesDate | date: 'EEEE d MMMM YYYY': 'fr-FR'}}
         </div>
         <ul class="matches-list">
-            <li class="match" *ngFor="let match of fetchMatchesOfDate(matchDate)">
+            <li class="match" *ngFor="let match of fetchMatchesOfDate(matchesDate)">
+
                 <div class="home-team">
-                    <span class="tla" [ngClass]="{'winner': match.score.winner === 'HOME_TEAM'}">{{ match.homeTeam.tla |
-                        uppercase}}</span>
-                    <span class="short-name" [ngClass]="{'winner': match.score.winner === 'HOME_TEAM'}">{{
-                        match.homeTeam.shortName | uppercase}}</span>
+                    <span class="tla" [class.winner]="isWinner(match, winners.home)">{{ match.homeTeam.tla}}</span>
+                    <span class="short-name"
+                        [class.winner]="isWinner(match, winners.home)">{{match.homeTeam.shortName}}</span>
                     <img [src]="match.homeTeam.crest" class="club-logo home-logo" alt="Logo of home team">
                 </div>
-                <div class="score" *ngIf="match.status === 'FINISHED'">
-                    <span [ngClass]="{'winner': match.score.winner === 'HOME_TEAM'}">{{ match.score.fullTime.home
-                        }}</span>
+
+                <div class="score" *ngIf="matchIsBegan(match); else elseBlock">
+                    <span [class.winner]="isWinner(match, winners.home)">{{match.score.fullTime.home}}</span>
                     &nbsp;-&nbsp;
-                    <span [ngClass]="{'winner': match.score.winner === 'AWAY_TEAM'}">{{ match.score.fullTime.away
-                        }}</span>
+                    <span [class.winner]="isWinner(match, winners.away)">{{match.score.fullTime.away}}</span>
                 </div>
-                <div class="score" *ngIf="match.status === 'TIMED'">
-                    {{match.utcDate | date: 'H:mm': 'fr-FR'}}
-                </div>
+
+                <ng-template #elseBlock>
+                    <div class="score">
+                        {{match.utcDate | date: 'H:mm': 'fr-FR'}}
+                    </div>
+                </ng-template>
+
                 <div class="away-team">
                     <img [src]="match.awayTeam.crest" class="club-logo away-logo" alt="Logo of away team">
-                    <span class="tla" [ngClass]="{'winner': match.score.winner === 'AWAY_TEAM'}">{{ match.awayTeam.tla |
-                        uppercase}}</span>
-                    <span class="short-name" [ngClass]="{'winner': match.score.winner === 'AWAY_TEAM'}">{{
-                        match.awayTeam.shortName | uppercase}}</span>
+                    <span class="tla" [class.winner]="isWinner(match, winners.away)">{{ match.awayTeam.tla}}</span>
+                    <span class="short-name"
+                        [class.winner]="isWinner(match, winners.away)">{{match.awayTeam.shortName}}</span>
                 </div>
+
             </li>
         </ul>
     </div>

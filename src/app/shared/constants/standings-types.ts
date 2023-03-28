@@ -1,5 +1,5 @@
 export enum StandingsTypes {
-    TOTAL = 'TOTAL',
-    HOME = 'HOME',
-    AWAY = 'AWAY'
+    total = 'TOTAL',
+    home = 'HOME',
+    away = 'AWAY'
 }
