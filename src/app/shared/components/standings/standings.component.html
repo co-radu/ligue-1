@@ -1,1 +1,36 @@
-<p>standings works!</p>
+<table>
+    <thead>
+        <tr>
+            <th scope="col" [id]="'header_'+i" *ngFor="let header of headers; let i = index">
+                {{header}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let teamPosition of dataStandingTable">
+            <td class="bold">{{teamPosition.position}}</td>
+            <td>
+                <div class="club-container">
+                    <img [src]="teamPosition.team.crest" class="club-logo" alt="">
+                    <span class="bold team-short-name">{{teamPosition.team.shortName}}</span>
+                    <span class="bold team-name">{{teamPosition.team.name}}</span>
+                </div>
+            </td>
+            <td class="bold">{{teamPosition.points}}</td>
+            <td>{{teamPosition.playedGames}}</td>
+            <td *ngIf="teamPosition.won">{{teamPosition.won}}</td>
+            <td *ngIf="teamPosition.draw">{{teamPosition.draw}}</td>
+            <td *ngIf="teamPosition.lost">{{teamPosition.lost}}</td>
+            <td *ngIf="teamPosition.goalsFor">{{teamPosition.goalsFor}}</td>
+            <td *ngIf="teamPosition.goalsAgainst">{{teamPosition.goalsAgainst}}</td>
+            <td id="header_10" *ngIf="teamPosition.goalDifference">{{teamPosition.goalDifference}}</td>
+            <td *ngIf="teamPosition.form">
+                <div class="form-container">
+                    <div *ngFor="let color of teamPosition.form | standingsFormColors"
+                        [ngStyle]="{'background-color': color}" class="standings-form">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

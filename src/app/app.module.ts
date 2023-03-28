@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { CalendarResultsComponent } from './calendar-results/calendar-results.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
-import { MatchesListComponent } from './shared/components/matches-list/matches-list.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { MatchesListComponent } from './shared/components/matches-list/matches-list.component';
 import { StandingsComponent } from './shared/components/standings/standings.component';
+import { StandingPipe } from './shared/pipes/standing/standing.pipe';
+import { StandingsFormColorsPipe } from './shared/pipes/standings-colors/standings-form-colors.pipe';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { StandingsComponent } from './shared/components/standings/standings.comp
     LayoutComponent,
     MatchesListComponent,
     LoaderComponent,
-    StandingsComponent
+    StandingsComponent,
+    StandingsFormColorsPipe,
+    StandingPipe
   ],
   imports: [
     BrowserModule,
