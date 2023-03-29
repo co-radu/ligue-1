@@ -113,11 +113,23 @@
               "devServerTarget": "l1-app:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "6c00cb82-59e4-4c51-bd94-188c302c34fe"
+    "analytics": "6c00cb82-59e4-4c51-bd94-188c302c34fe",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

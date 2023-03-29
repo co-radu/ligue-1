@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
-import { Standing } from '../../models/season/standing';
 import { StandingsDescription } from '../../models/season/standings-description';
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { StandingsTypes } from '../shared/constants/standings-types';
 import { Match } from '../shared/models/matches/match';
 import { Standing } from '../shared/models/season/standing';
@@ -16,8 +16,12 @@ import { SeasonService } from '../shared/services/season/season.service';
 export class HomeComponent implements OnDestroy {
 
 	private getStandingDescriptionSub$: Subscription;
+	private getMatchesListDataSub$!: Subscription;
+	private subscriptions$: Subscription[] = [];
 
-	public matchesListData!: Observable<Match[]>;
+	public matchesListToggler = false;
+
+	public matchesListData!: Match[];
 
 	public standingTable!: TeamPosition[];
 	public standingHeaders: string[] = ['pos', 'club', 'pts', 'j'];
@@ -29,11 +33,20 @@ export class HomeComponent implements OnDestroy {
 		this.getStandingDescriptionSub$ = this.seasonService.getStandingsDescription().subscribe((standingsDesc: StandingsDescription) => {
 			const currentMatchday: number = standingsDesc.season.currentMatchday;
 			this.standingTable = <TeamPosition[]>standingsDesc.standings.find((standing: Standing) => standing.type === StandingsTypes.total)?.table;
-			this.matchesListData = this.matchesService.getMatchesOfCurrentMatchday(currentMatchday);
+			this.getMatchesListDataSub$ = this.matchesService.getMatchesOfCurrentMatchday(currentMatchday).subscribe((matchesList: Match[]) => {
+				this.matchesListData = matchesList;
+			});
+			this.subscriptions$.push(this.getStandingDescriptionSub$, this.getMatchesListDataSub$);
 		});
 	}
 
+	toggledBetweenMatchesAndStanding(): void {
+		!this.matchesListToggler ? this.matchesListToggler = true : this.matchesListToggler = false;
+	}
+
 	ngOnDestroy(): void {
-		this.getStandingDescriptionSub$.unsubscribe();
+		this.subscriptions$.forEach((subscriptions$: Subscription) => {
+			subscriptions$.unsubscribe;
+		})
 	}
 }

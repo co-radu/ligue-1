@@ -8,7 +8,7 @@ import { Component, Inject, Renderer2 } from '@angular/core';
 })
 export class LayoutComponent {
 
-  public isExpanded: boolean = false;
+  public isExpanded = false;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,

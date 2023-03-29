@@ -12,7 +12,7 @@ fdescribe('StandingPipe', () => {
   }
 
   function randomStringFromLength(length: number): string {
-    let randomString: string = '';
+    let randomString = '';
     while (randomString.length < length) {
       randomString += chars.charAt(randomIntFromInterval(0, length));
     }
@@ -58,7 +58,7 @@ fdescribe('StandingPipe', () => {
     delete smallTeamPosition.lost;
     delete smallTeamPosition.goalDifference;
     return smallTeamPosition;
-  };;
+  }
 
   it('should return an array containing small team positions.', () => {
     expect(pipe.transform([smallTeamPosition, smallTeamPosition], StandingsSizes.small)).toEqual([removedItemsOfSmallTeamPosition(), removedItemsOfSmallTeamPosition()]);

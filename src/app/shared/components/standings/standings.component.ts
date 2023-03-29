@@ -17,5 +17,4 @@ export class StandingsComponent implements OnInit {
       this.headers = Object.keys(this.dataStandingTable[0]).map((header: string) => header = header.replace(/([A-Z])/g, ' $1'));
     }
   }
-
 }
