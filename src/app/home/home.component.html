@@ -1,6 +1,13 @@
-<button (click)="toggledBetweenMatchesAndStanding()">toggle</button>
-<app-standings *ngIf="!matchesListToggler && standingTable" [dataStandingTable]="standingTable | standing:'small'"
-    [headers]="standingHeaders"></app-standings>
-<app-loader *ngIf="!matchesListToggler && !standingTable"></app-loader>
-<app-matches-list *ngIf="matchesListToggler" [matchesListData]="matchesListData"></app-matches-list>
-<app-loader *ngIf="matchesListToggler && !matchesListData"></app-loader>
+<div class="buttons-container">
+    <button class="toggle-buttons standing-button" [ngClass]="{'active': !matchesListToggler }"
+        (click)="standingsIsActive()">classement</button>
+    <button class="toggle-buttons matches-button" [ngClass]="{'active': matchesListToggler }"
+        (click)="matchesIsActive()">rencontres</button>
+</div>
+<div class="tables-container">
+    <app-standings *ngIf="!matchesListToggler && standingTable" [dataStandingTable]="standingTable | standing:'small'"
+        [headers]="standingHeaders"></app-standings>
+    <app-loader *ngIf="!matchesListToggler && !standingTable"></app-loader>
+    <app-matches-list *ngIf="matchesListToggler" [matchesListData]="matchesListData"></app-matches-list>
+    <app-loader *ngIf="matchesListToggler && !matchesListData"></app-loader>
+</div>

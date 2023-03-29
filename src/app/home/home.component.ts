@@ -40,8 +40,12 @@ export class HomeComponent implements OnDestroy {
 		});
 	}
 
-	toggledBetweenMatchesAndStanding(): void {
-		!this.matchesListToggler ? this.matchesListToggler = true : this.matchesListToggler = false;
+	standingsIsActive(): void {
+		this.matchesListToggler = false;
+	}
+
+	matchesIsActive(): void {
+		this.matchesListToggler = true;
 	}
 
 	ngOnDestroy(): void {

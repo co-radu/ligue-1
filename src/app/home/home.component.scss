@@ -1,0 +1,39 @@
+@import '../shared/styles/variables.scss';
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+
+    /*     box-shadow: 0px 0px 6px 1px $primary;
+ */
+    .toggle-buttons {
+        text-transform: uppercase;
+        background-color: $primary;
+        color: #FFFFFF;
+        padding: 20px 0;
+        width: 50%;
+        font-weight: bold;
+    }
+
+    .standing-button {
+        border-right: 1px solid #FFFFFF;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .matches-button {
+        border-left: 1px solid #FFFFFF;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .active {
+        color: $secondary;
+        text-decoration: underline;
+    }
+}
