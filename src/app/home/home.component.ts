@@ -19,12 +19,12 @@ export class HomeComponent implements OnDestroy {
 	private getMatchesListDataSub$!: Subscription;
 	private subscriptions$: Subscription[] = [];
 
-	public matchesListToggler = false;
+	matchesIsActive = false;
 
-	public matchesListData!: Match[];
+	matchesListData!: Match[];
 
-	public standingTable!: TeamPosition[];
-	public standingHeaders: string[] = ['pos', 'club', 'pts', 'j'];
+	standingTable!: TeamPosition[];
+	standingHeaders: string[] = ['', '', 'pts', 'j'];
 
 	constructor(
 		private seasonService: SeasonService,
@@ -40,12 +40,10 @@ export class HomeComponent implements OnDestroy {
 		});
 	}
 
-	standingsIsActive(): void {
-		this.matchesListToggler = false;
-	}
-
-	matchesIsActive(): void {
-		this.matchesListToggler = true;
+	isToggle(): void {
+		console.log(this.matchesIsActive)
+		this.matchesIsActive ? this.matchesIsActive = false : this.matchesIsActive = true;
+		console.log(this.matchesIsActive)
 	}
 
 	ngOnDestroy(): void {

@@ -1,39 +1,49 @@
 @import '../shared/styles/variables.scss';
 
-.buttons-container {
-    display: flex;
-    justify-content: center;
-    margin: 10px 0;
-    width: 250px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 10px;
+.btn-container {
+    margin: 10px auto 25px;
+    width: 80%;
+    height: 46px;
+}
 
-    /*     box-shadow: 0px 0px 6px 1px $primary;
- */
-    .toggle-buttons {
-        text-transform: uppercase;
-        background-color: $primary;
-        color: #FFFFFF;
-        padding: 20px 0;
-        width: 50%;
-        font-weight: bold;
+.btn {
+    background-color: $gray;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    width: 50%;
+    height: 100%;
+    font-weight: bold;
+}
+
+.btn_active {
+    background-color: $primary;
+    color: $secondary;
+}
+
+.none {
+    display: none;
+}
+
+:host ::ng-deep {
+
+    app-standings {
+
+        table {
+            height: 800px;
+        }
+
+        th {
+            text-transform: uppercase;
+        }
     }
 
-    .standing-button {
-        border-right: 1px solid #FFFFFF;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
+    app-matches-list {
 
-    .matches-button {
-        border-left: 1px solid #FFFFFF;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    .active {
-        color: $secondary;
-        text-decoration: underline;
+        .current-matchday {
+            display: none;
+        }
     }
 }
+
+/*     box-shadow: 0px 0px 6px 1px $primary;
+ */

@@ -23,7 +23,7 @@ import { StandingsFormColorsPipe } from './shared/pipes/standings-colors/standin
     LoaderComponent,
     StandingsComponent,
     StandingsFormColorsPipe,
-    StandingPipe
+    StandingPipe,
   ],
   imports: [
     BrowserModule,
