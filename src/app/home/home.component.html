@@ -1,11 +1,14 @@
-<div class="btn-container">
-    <button (click)="standingActivated()" class="standings-btn btn"
-        [ngClass]="{'btn_active': !matchesIsActive}">classement</button>
-    <button (click)="matchesActivated()" class="matches-btn btn"
-        [ngClass]="{'btn_active': matchesIsActive}">résultats</button>
-</div>
+<div class="tables-container">
+    <div class="btn-container">
+        <button (click)="standingActivated()" class="standings-btn btn"
+            [ngClass]="{'btn_active': !matchesIsActive}">classement</button>
+        <button (click)="matchesActivated()" class="matches-btn btn"
+            [ngClass]="{'btn_active': matchesIsActive}">résultats</button>
+    </div>
 
-<app-standings *ngIf="standingTable" [dataStandingTable]="standingTable | standing:'small'" [headers]="standingHeaders"
-    [ngClass]="{'none': matchesIsActive}"></app-standings>
-<app-matches-list [matchesListData]="matchesListData" [ngClass]="{'none': !matchesIsActive}"></app-matches-list>
-<app-loader *ngIf="!standingTable || !matchesListData"></app-loader>
+    <app-standings *ngIf="standingTable" [dataStandingTable]="standingTable | standing:'small'"
+        [headers]="standingHeaders" [width]="'290px'" [ngClass]="{'none': matchesIsActive}"></app-standings>
+    <app-matches-list [matchesListData]="matchesListData" [width]="'290px'"
+        [ngClass]="{'none': !matchesIsActive}"></app-matches-list>
+    <app-loader *ngIf="!standingTable || !matchesListData"></app-loader>
+</div>

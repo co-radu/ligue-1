@@ -1,4 +1,4 @@
-<table>
+<table id="table" [ngStyle]="{'width': width}">
     <thead>
         <tr>
             <th scope="col" [id]="'header_'+i" *ngFor="let header of headers; let i = index">
@@ -12,8 +12,10 @@
             <td>
                 <div class="club-container">
                     <img [src]="teamPosition.team.crest" class="club-logo" alt="">
-                    <span class="bold team-short-name">{{teamPosition.team.shortName}}</span>
-                    <span class="bold team-name">{{teamPosition.team.name}}</span>
+                    <span id="short-name" class="bold team-name"
+                        *ngIf="shortNameIsActived()">{{teamPosition.team.shortName}}</span>
+                    <span id="name" class="bold team-name"
+                        *ngIf="!shortNameIsActived()">{{teamPosition.team.name}}</span>
                 </div>
             </td>
             <td class="bold">{{teamPosition.points}}</td>

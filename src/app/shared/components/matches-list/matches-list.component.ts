@@ -4,7 +4,7 @@ import { Winners } from '../../constants/winners';
 import { Match } from '../../models/matches/match';
 
 @Component({
-  selector: 'app-matches-list[matchesListData]',
+  selector: 'app-matches-list[matchesListData][width]',
   templateUrl: './matches-list.component.html',
   styleUrls: ['./matches-list.component.scss']
 })
@@ -12,7 +12,17 @@ export class MatchesListComponent {
 
   @Input() matchesListData!: Match[];
 
-  public winners: typeof Winners = Winners;
+  @Input() width = '400px';
+
+  winners = Winners;
+
+  tlaIsActived(): boolean {
+    if (parseInt(<string>document.getElementById('container-matchday')?.style.width) < 300) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   getMatchesDates(): string[] {
     const matchesDates: string[] = [];

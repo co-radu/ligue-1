@@ -1,4 +1,4 @@
-<div class="container-matchday" *ngIf="matchesListData">
+<div id="container-matchday" *ngIf="matchesListData" [ngStyle]="{'width': width}">
     <div class="current-matchday">
         journée {{ matchesListData[0].matchday}}
     </div>
@@ -10,8 +10,9 @@
             <li class="match" *ngFor="let match of fetchMatchesOfDate(matchesDate)">
 
                 <div class="home-team">
-                    <span class="tla" [class.winner]="isWinner(match, winners.home)">{{ match.homeTeam.tla}}</span>
-                    <span class="short-name"
+                    <span id="tla" *ngIf="tlaIsActived()" [class.winner]="isWinner(match, winners.home)">{{
+                        match.homeTeam.tla}}</span>
+                    <span id="short-name" *ngIf="!tlaIsActived()"
                         [class.winner]="isWinner(match, winners.home)">{{match.homeTeam.shortName}}</span>
                     <img [src]="match.homeTeam.crest" class="club-logo home-logo" alt="Logo of home team">
                 </div>
@@ -30,8 +31,9 @@
 
                 <div class="away-team">
                     <img [src]="match.awayTeam.crest" class="club-logo away-logo" alt="Logo of away team">
-                    <span class="tla" [class.winner]="isWinner(match, winners.away)">{{ match.awayTeam.tla}}</span>
-                    <span class="short-name"
+                    <span id="tla" *ngIf="tlaIsActived()" [class.winner]="isWinner(match, winners.away)">{{
+                        match.awayTeam.tla}}</span>
+                    <span id="short-name" *ngIf="!tlaIsActived()"
                         [class.winner]="isWinner(match, winners.away)">{{match.awayTeam.shortName}}</span>
                 </div>
 

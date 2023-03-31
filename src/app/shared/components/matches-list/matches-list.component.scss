@@ -9,7 +9,7 @@ $margin-list: 22px;
     width: 100%;
 }
 
-.container-matchday,
+#container-matchday,
 .matches-of-day,
 .match,
 .home-team,
@@ -18,7 +18,7 @@ $margin-list: 22px;
     display: flex;
 }
 
-.container-matchday,
+#container-matchday,
 .matches-of-day,
 .home-team,
 .score,
@@ -26,7 +26,7 @@ $margin-list: 22px;
     align-items: center;
 }
 
-.container-matchday,
+#container-matchday,
 .matches-of-day {
     flex-direction: column;
 
@@ -49,9 +49,18 @@ $margin-list: 22px;
 }
 
 .score,
-.tla,
-.short-name {
+#tla,
+#short-name {
     color: $gray;
+}
+
+.match-date,
+#tla {
+    text-transform: uppercase;
+}
+
+#container-matchday {
+    margin: auto;
 }
 
 .current-matchday {
@@ -65,7 +74,6 @@ $margin-list: 22px;
 }
 
 .match-date {
-    text-transform: uppercase;
     text-align: center;
     color: #ffffff;
     padding: 6px 0;
@@ -75,6 +83,10 @@ $margin-list: 22px;
     list-style: none;
     padding: 0;
     margin: $margin-list 0 0 0;
+}
+
+.score {
+    margin: 0 8px;
 }
 
 .winner {
@@ -88,11 +100,6 @@ $margin-list: 22px;
 
 .away-team {
     justify-content: flex-start;
-}
-
-.short-name {
-    display: none;
-    text-transform: uppercase;
 }
 
 .club-logo {
@@ -115,14 +122,6 @@ $margin-list: 22px;
 // Medium screen
 
 @media screen and (min-width: $medium) {
-
-    .tla {
-        display: none;
-    }
-
-    .short-name {
-        display: flex;
-    }
 
     .home-team,
     .away-team {

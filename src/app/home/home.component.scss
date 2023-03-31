@@ -4,7 +4,7 @@ $radius: 10px;
 
 .btn-container {
     margin: 20px auto 25px;
-    width: 80%;
+    width: 250px;
     height: 46px;
     border-radius: $radius;
 
@@ -37,21 +37,16 @@ $radius: 10px;
     display: none;
 }
 
-:host ::ng-deep {
+.tables-container {
+    margin-bottom: 25px;
+}
 
-    app-standings>table,
-    app-matches-list>.container-matchday {
-        margin-bottom: 25px;
-    }
+:host ::ng-deep {
 
     app-standings {
 
         table {
             height: 800px;
-        }
-
-        th {
-            text-transform: uppercase;
         }
     }
 
@@ -61,4 +56,11 @@ $radius: 10px;
             display: none;
         }
     }
+}
+
+@media screen and (min-width: $medium) {
+
+    /*     .tables-container {
+        width: 290px;
+    } */
 }
