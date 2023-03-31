@@ -1,23 +1,36 @@
 @import '../shared/styles/variables.scss';
 
+$radius: 10px;
+
 .btn-container {
-    margin: 10px auto 25px;
+    margin: 20px auto 25px;
     width: 80%;
     height: 46px;
-}
+    border-radius: $radius;
 
-.btn {
-    background-color: $gray;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    width: 50%;
-    height: 100%;
-    font-weight: bold;
-}
+    .btn {
+        background-color: $gray;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        width: 50%;
+        height: 100%;
+        font-weight: bold;
+    }
 
-.btn_active {
-    background-color: $primary;
-    color: $secondary;
+    .btn_active {
+        background-color: $primary;
+        color: $secondary;
+    }
+
+    .matches-btn {
+        border-bottom-right-radius: $radius;
+        border-top-right-radius: $radius;
+    }
+
+    .standings-btn {
+        border-bottom-left-radius: $radius;
+        border-top-left-radius: $radius;
+    }
 }
 
 .none {
@@ -25,6 +38,11 @@
 }
 
 :host ::ng-deep {
+
+    app-standings>table,
+    app-matches-list>.container-matchday {
+        margin-bottom: 25px;
+    }
 
     app-standings {
 
@@ -44,6 +62,3 @@
         }
     }
 }
-
-/*     box-shadow: 0px 0px 6px 1px $primary;
- */

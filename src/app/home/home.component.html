@@ -1,7 +1,8 @@
 <div class="btn-container">
-    <button (click)="isToggle()" class="standings-btn btn"
+    <button (click)="standingActivated()" class="standings-btn btn"
         [ngClass]="{'btn_active': !matchesIsActive}">classement</button>
-    <button (click)="isToggle()" class="matches-btn btn" [ngClass]="{'btn_active': matchesIsActive}">résultats</button>
+    <button (click)="matchesActivated()" class="matches-btn btn"
+        [ngClass]="{'btn_active': matchesIsActive}">résultats</button>
 </div>
 
 <app-standings *ngIf="standingTable" [dataStandingTable]="standingTable | standing:'small'" [headers]="standingHeaders"

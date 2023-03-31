@@ -40,10 +40,11 @@ export class HomeComponent implements OnDestroy {
 		});
 	}
 
-	isToggle(): void {
-		console.log(this.matchesIsActive)
-		this.matchesIsActive ? this.matchesIsActive = false : this.matchesIsActive = true;
-		console.log(this.matchesIsActive)
+	standingActivated(): void {
+		this.matchesIsActive = false;
+	}
+	matchesActivated(): void {
+		this.matchesIsActive = true;
 	}
 
 	ngOnDestroy(): void {
