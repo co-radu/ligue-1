@@ -13,31 +13,25 @@ import { SeasonService } from '../shared/services/season/season.service';
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnDestroy {
-
-	private getStandingDescriptionSub$: Subscription;
-	private getMatchesListDataSub$!: Subscription;
-	private subscriptions$: Subscription[] = [];
-
-	matchesIsActive = false;
-
-	matchesListData!: Match[];
-
-	standingTable!: TeamPosition[];
+export class HomeComponent {
 	standingHeaders: string[] = ['', '', 'pts', 'j'];
+	matchesIsActive = false;
+	matchesListData: Observable<Match[]>;
+	standingTable: Observable<TeamPosition[]>;
 
 	constructor(
 		private seasonService: SeasonService,
 		private matchesService: MatchesService,
 	) {
-		this.getStandingDescriptionSub$ = this.seasonService.getStandingsDescription().subscribe((standingsDesc: StandingsDescription) => {
-			const currentMatchday: number = standingsDesc.season.currentMatchday;
-			this.standingTable = <TeamPosition[]>standingsDesc.standings.find((standing: Standing) => standing.type === StandingsTypes.total)?.table;
-			this.getMatchesListDataSub$ = this.matchesService.getMatchesOfCurrentMatchday(currentMatchday).subscribe((matchesList: Match[]) => {
-				this.matchesListData = matchesList;
-			});
-			this.subscriptions$.push(this.getStandingDescriptionSub$, this.getMatchesListDataSub$);
-		});
+		this.standingTable = this.seasonService.getStandingsDescription().pipe(
+      tap((standingsDesc: StandingsDescription) => {
+        const currentMatchDay: number = standingsDesc.season.currentMatchday;
+        this.matchesListData = this.matchesService.getMatchesOfCurrentMatchday(currentMatchday);
+      }),
+      map((standingsDesc: StandingsDescription) => standingsDesc.standings),
+      filter((standing: Standing) => standing.type === StandingsTypes.total),
+      map((standing: Standing) => standing.table)
+		);
 	}
 
 	standingActivated(): void {
@@ -45,11 +39,5 @@ export class HomeComponent implements OnDestroy {
 	}
 	matchesActivated(): void {
 		this.matchesIsActive = true;
-	}
-
-	ngOnDestroy(): void {
-		this.subscriptions$.forEach((subscriptions$: Subscription) => {
-			subscriptions$.unsubscribe;
-		})
 	}
 }
