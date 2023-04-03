@@ -2,34 +2,13 @@
 
 $margin-list: 22px;
 
-.matches-of-day,
-.match-date,
-.matches-list,
-.match {
-    width: 100%;
+.font-gray {
+    color: $gray;
 }
 
 #container-matchday,
-.matches-of-day,
-.match,
-.home-team,
-.score,
-.away-team {
-    display: flex;
-}
-
-#container-matchday,
-.matches-of-day,
-.home-team,
-.score,
-.away-team {
-    align-items: center;
-}
-
-#container-matchday,
-.matches-of-day {
+.match-table {
     flex-direction: column;
-
 }
 
 .current-matchday,
@@ -48,19 +27,10 @@ $margin-list: 22px;
     justify-content: center;
 }
 
-.score,
-#tla,
-#short-name {
-    color: $gray;
-}
-
-.match-date,
-#tla {
-    text-transform: uppercase;
-}
-
 #container-matchday {
     margin: auto;
+    height: 620px;
+    background-color: $light-blue;
 }
 
 .current-matchday {
@@ -119,8 +89,7 @@ $margin-list: 22px;
     margin-bottom: $margin-list;
 }
 
-// Medium screen
-
+// Media queries 
 @media screen and (min-width: $medium) {
 
     .home-team,

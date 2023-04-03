@@ -17,6 +17,10 @@ body {
     font-weight: 400;
 }
 
+a {
+    text-underline-offset: 3px;
+}
+
 header,
 footer {
     background-color: $primary;
@@ -47,4 +51,38 @@ button {
 .sidenav-is-opened {
     overflow: hidden;
     box-sizing: content-box;
+}
+
+.max-width {
+    max-width: $app-max-width;
+    margin: auto;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.txt-deco-none {
+    text-decoration: none;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    @extend .flex;
+    align-items: center;
+}
+
+.width-full {
+    width: 100%
 }

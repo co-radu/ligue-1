@@ -43,13 +43,6 @@ $radius: 10px;
 
 :host ::ng-deep {
 
-    app-standings {
-
-        table {
-            height: 800px;
-        }
-    }
-
     app-matches-list {
 
         .current-matchday {
@@ -60,7 +53,7 @@ $radius: 10px;
 
 @media screen and (min-width: $medium) {
 
-    /*     .tables-container {
-        width: 290px;
-    } */
+    .tables-container {
+        width: 310px;
+    }
 }

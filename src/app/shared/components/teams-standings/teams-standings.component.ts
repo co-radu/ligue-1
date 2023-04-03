@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TeamPosition } from '../../models/season/team-position';
 
 @Component({
-  selector: 'app-standings[dataStandingTable][width]',
-  templateUrl: './standings.component.html',
-  styleUrls: ['./standings.component.scss']
+  selector: 'app-teams-standings[dataStandingTable][width]',
+  templateUrl: './teams-standings.component.html',
+  styleUrls: ['./teams-standings.component.scss']
 })
-export class StandingsComponent implements OnInit {
+export class TeamsStandingsComponent implements OnInit {
 
   @Input() dataStandingTable!: TeamPosition[];
 

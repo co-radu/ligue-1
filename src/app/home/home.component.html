@@ -6,8 +6,8 @@
             [ngClass]="{'btn_active': matchesIsActive}">résultats</button>
     </div>
 
-    <app-standings *ngIf="standingTable" [dataStandingTable]="standingTable | standing:'small'"
-        [headers]="standingHeaders" [width]="'290px'" [ngClass]="{'none': matchesIsActive}"></app-standings>
+    <app-teams-standings *ngIf="standingTable" [dataStandingTable]="standingTable | standing:'small'"
+        [headers]="standingHeaders" [width]="'290px'" [ngClass]="{'none': matchesIsActive}"></app-teams-standings>
     <app-matches-list [matchesListData]="matchesListData" [width]="'290px'"
         [ngClass]="{'none': !matchesIsActive}"></app-matches-list>
     <app-loader *ngIf="!standingTable || !matchesListData"></app-loader>

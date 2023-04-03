@@ -11,11 +11,8 @@ th {
 table {
     width: 100%;
     text-align: center;
-    height: 100%;
-}
-
-th {
-    text-transform: uppercase;
+    height: 620px;
+    background-color: $light-blue;
 }
 
 tr {
@@ -35,15 +32,6 @@ tbody>tr:last-child {
     border-bottom: none;
 }
 
-.bold {
-    font-weight: bold;
-}
-
-.club-container {
-    display: flex;
-    align-items: center;
-}
-
 .club-logo {
     height: 20px;
     width: 20px;
@@ -51,10 +39,6 @@ tbody>tr:last-child {
 
 .team-name {
     margin-left: 10px;
-}
-
-.form-container {
-    display: flex;
 }
 
 .standings-form {

@@ -15,7 +15,8 @@ export class LayoutComponent {
     private renderer: Renderer2
   ) { }
 
-  removeBodyClass(): void {
+  closeSidenav(): void {
+    this.isExpanded = false;
     this.renderer.removeClass(this.document.body, 'sidenav-is-opened');
   }
 
@@ -26,7 +27,7 @@ export class LayoutComponent {
         this.renderer.addClass(this.document.body, 'sidenav-is-opened');
       } else if (this.isExpanded) {
         this.isExpanded = false;
-        this.removeBodyClass();
+        this.renderer.removeClass(this.document.body, 'sidenav-is-opened');
       }
     }
   }
