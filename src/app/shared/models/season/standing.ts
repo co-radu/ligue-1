@@ -1,8 +1,9 @@
-import { TeamResults } from './team-results';
+import { StandingsTypes } from "../../constants/standings-types";
+import { TeamPosition } from "./team-position";
 
-export abstract class Standing {
+export interface Standing {
 
-    abstract stage: string;
-    abstract type: string;
-    abstract table: TeamResults[];
+    stage: string;
+    type: StandingsTypes;
+    table: TeamPosition[];
 }

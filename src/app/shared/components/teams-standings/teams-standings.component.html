@@ -1,0 +1,39 @@
+<table id="table" [ngStyle]="{'width': width}">
+    <thead>
+        <tr>
+            <th class="uppercase" scope="col" [id]="'header_'+i" *ngFor="let header of headers; let i = index">
+                {{header}}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let teamPosition of dataStandingTable">
+            <td class="bold">{{teamPosition.position}}</td>
+            <td>
+                <div class="align-center">
+                    <img [src]="teamPosition.team.crest" class="club-logo"
+                        [alt]="teamPosition.team.name + '&nbsp;logo.'">
+                    <span id="short-name" class="bold team-name"
+                        *ngIf="shortNameIsActived()">{{teamPosition.team.shortName}}</span>
+                    <span id="name" class="bold team-name"
+                        *ngIf="!shortNameIsActived()">{{teamPosition.team.name}}</span>
+                </div>
+            </td>
+            <td class="bold">{{teamPosition.points}}</td>
+            <td>{{teamPosition.playedGames}}</td>
+            <td *ngIf="teamPosition.won">{{teamPosition.won}}</td>
+            <td *ngIf="teamPosition.draw">{{teamPosition.draw}}</td>
+            <td *ngIf="teamPosition.lost">{{teamPosition.lost}}</td>
+            <td *ngIf="teamPosition.goalsFor">{{teamPosition.goalsFor}}</td>
+            <td *ngIf="teamPosition.goalsAgainst">{{teamPosition.goalsAgainst}}</td>
+            <td id="header_10" *ngIf="teamPosition.goalDifference">{{teamPosition.goalDifference}}</td>
+            <td *ngIf="teamPosition.form">
+                <div class="flex">
+                    <div *ngFor="let color of teamPosition.form | standingsFormColors"
+                        [ngStyle]="{'background-color': color}" class="standings-form">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

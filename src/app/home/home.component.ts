@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { StandingsTypes } from '../shared/constants/standings-types';
 import { Match } from '../shared/models/matches/match';
+import { Standing } from '../shared/models/season/standing';
+import { StandingsDescription } from '../shared/models/season/standings-description';
+import { TeamPosition } from '../shared/models/season/team-position';
 import { MatchesService } from '../shared/services/matches/matches.service';
 import { SeasonService } from '../shared/services/season/season.service';
 
@@ -8,25 +13,43 @@ import { SeasonService } from '../shared/services/season/season.service';
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnDestroy {
 
-	public matchesOfCurrentMatchday!: Match[];
-	public currentMatchday: number = 1;
+	private getStandingDescriptionSub$: Subscription;
+	private getMatchesListDataSub$!: Subscription;
+	private subscriptions$: Subscription[] = [];
+
+	matchesIsActive = false;
+
+	matchesListData!: Match[];
+
+	standingTable!: TeamPosition[];
+	standingHeaders: string[] = ['', '', 'pts', 'j'];
 
 	constructor(
 		private seasonService: SeasonService,
 		private matchesService: MatchesService,
 	) {
-		this.seasonService.getCurrentMatchday().subscribe((currentMatchday: number) => {
-			this.currentMatchday = currentMatchday;
-			this.matchesService.getMatchesOfCurrentMatchday(currentMatchday).subscribe((matchesOfCurrentMatchday: Match[]) => {
-				this.matchesOfCurrentMatchday = matchesOfCurrentMatchday;
+		this.getStandingDescriptionSub$ = this.seasonService.getStandingsDescription().subscribe((standingsDesc: StandingsDescription) => {
+			const currentMatchday: number = standingsDesc.season.currentMatchday;
+			this.standingTable = <TeamPosition[]>standingsDesc.standings.find((standing: Standing) => standing.type === StandingsTypes.total)?.table;
+			this.getMatchesListDataSub$ = this.matchesService.getMatchesOfCurrentMatchday(currentMatchday).subscribe((matchesList: Match[]) => {
+				this.matchesListData = matchesList;
 			});
+			this.subscriptions$.push(this.getStandingDescriptionSub$, this.getMatchesListDataSub$);
 		});
 	}
 
-	ngOnInit(): void {
-
+	standingActivated(): void {
+		this.matchesIsActive = false;
+	}
+	matchesActivated(): void {
+		this.matchesIsActive = true;
 	}
 
+	ngOnDestroy(): void {
+		this.subscriptions$.forEach((subscriptions$: Subscription) => {
+			subscriptions$.unsubscribe;
+		})
+	}
 }

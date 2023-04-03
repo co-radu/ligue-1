@@ -1,21 +1,10 @@
+import { Winners } from "../../constants/winners";
 import { TimeScore } from "./time-score";
 
-export class Score {
+export interface Score {
 
-    winner: string;
+    winner: Winners;
     duration: string;
-    extraTime: TimeScore;
+    halfTime: TimeScore;
     fullTime: TimeScore;
-
-    constructor(
-        winner: string,
-        duration: string,
-        extraTime: TimeScore,
-        fullTime: TimeScore
-    ) {
-        this.winner = winner
-        this.duration = duration
-        this.extraTime = extraTime
-        this.fullTime = fullTime
-    }
 }

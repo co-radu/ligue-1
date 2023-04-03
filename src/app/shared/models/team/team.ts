@@ -4,7 +4,7 @@ export class Team {
     name: string;
     shortName: string;
     tla: string; //Initials of team name.
-    crestUrl: string; //Logo url.
+    crestUrl: string; //Logo url.    
 
     constructor(
         id: number,

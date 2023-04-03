@@ -1,51 +1,15 @@
 @import '../shared/styles/variables.scss';
 
-.app-title-link,
-#ligue-1,
-.sidenav-links {
-    text-transform: uppercase;
+h1 {
+    font-size: 1.8rem;
 }
 
-.container,
-header,
-footer,
-.links-list {
-    display: flex;
-}
-
-footer,
-.container,
-.sidenav-links-list {
-    flex-direction: column;
-}
-
-.ligue-1-link,
-.app-title-link {
-    font-weight: bold;
-}
-
-header,
-footer,
-.sidenav {
-    background-color: $primary;
-}
-
-header,
-footer {
-    align-items: center;
-}
-
-.container,
-header {
+// Header
+.headers {
+    width: 100%;
+    max-width: $app-max-width;
+    height: 100%;
     justify-content: space-between;
-}
-
-.container {
-    min-height: 100vh;
-}
-
-header {
-    height: $header-height;
 }
 
 .material-symbols-outlined {
@@ -58,64 +22,33 @@ header {
 }
 
 #account-link {
-    visibility: collapse; //Work in progress! Available on v0.2! 
+    visibility: collapse; //Work in progress, available on v0.2! 
     padding: 1px 6px;
 }
 
-.links {
-    text-decoration: none;
-}
-
-.material-symbols-outlined,
-.links {
-    color: #FFFFFF;
-}
-
-.app-title-link {
-    font-size: 1.5rem;
-}
-
-.ligue-1-link-container {
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-}
-
-#ligue-1,
-#uber-eats {
-    color: $secondary;
-}
-
-#ligue-1 {
-    font-size: 1.2rem;
-}
-
-#uber-eats {
-    text-transform: capitalize;
-    font-weight: normal;
-}
-
-.links-list {
-    list-style: none;
-    padding: 0;
-}
-
-.social-links {
-    margin: 0 12px;
-}
-
-.social-logos {
-    height: 26px;
-    width: 26px;
-}
-
 // Sidenav
-
 .sidenav {
-    height: calc(100vh - $header-height);
+    height: calc(100% - $header-height);
     width: 100vw;
     position: absolute;
     top: $header-height;
-    transition: 0.6s;
+    transition: 0.4s;
+    background-color: $primary;
+    flex-direction: column;
+
+    .sidenav-full {
+        flex-direction: column;
+        margin: 15px 40px;
+
+        .link-container {
+            margin-bottom: 12px;
+
+            .sidenav-link {
+                font-size: 1.5rem;
+                text-transform: capitalize;
+            }
+        }
+    }
 }
 
 .sidenav-closed {
@@ -123,72 +56,106 @@ header {
 }
 
 .sidenav-opened {
+    height: 100%;
     left: 0;
 }
 
-.sidenav-links-list {
-    padding: 0 19px;
-
-    li {
-        margin-bottom: 12px;
-    }
-}
-
-.sidenav-links {
-    font-size: 24px;
-}
-
-.links-active {
+.link-active {
     color: $secondary;
 }
 
-// Desktop screen
+// Footer
+.ligue-1-link-container {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 
-@media screen and (min-width: 768px) {
+    .ligue-1-link {
+        font-size: 1.2rem;
+        color: $secondary;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
 
-    .sidenav-links-list,
-    .sidenav-links {
-        padding: 0 10px;
+        #uber-eats {
+            text-transform: capitalize;
+            font-weight: normal;
+            font-size: 1rem;
+        }
+    }
+}
+
+.social-list {
+    justify-content: flex-end;
+
+    .social-link {
+        margin: 0 12px;
+
+        .social-logos {
+            height: 26px;
+            width: 26px;
+        }
+    }
+}
+
+// Media queries
+@media screen and (min-width: $medium) {
+
+    h1 {
+        font-size: 2rem;
     }
 
-    .menu {
+    .collapse {
         visibility: collapse;
     }
 
     .sidenav {
+        display: flex;
+        position: relative;
+        top: 0;
         left: 0;
-        height: fit-content;
+        height: $sidenav-height;
         transition: none;
-    }
-
-    .sidenav-links-list {
+        justify-content: flex-start;
+        width: 100%;
         flex-direction: row;
-        margin: 0;
-        padding-left: 7px;
+        margin: auto;
 
-        li {
-            margin-right: 12px;
-            border-radius: 12px;
+        .sidenav-full {
+            flex-direction: row;
+            margin: auto;
+            width: 100%;
+
+            .link-container {
+                margin: 0 12px 0;
+                border-radius: 12px;
+
+                .sidenav-link {
+                    padding: 0 10px;
+                }
+
+                .sidenav-link:hover {
+                    text-decoration: underline;
+                    text-decoration-thickness: 1px;
+                }
+            }
         }
-    }
-
-    .sidenav-links {
-        font-size: 20px;
-    }
-
-    .sidenav-links:hover {
-        text-decoration: underline;
     }
 
     .active {
         background-color: $secondary;
     }
 
-    .links-active {
+    .link-active {
         color: $primary;
     }
 
-    .links-active:hover {
+    .link-active:hover {
         text-decoration: none;
+    }
+}
+
+@media screen and (min-width: $large) {
+
+    h1 {
+        font-size: 2.2rem;
     }
 }

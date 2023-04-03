@@ -1,0 +1,99 @@
+@import '../../styles/variables.scss';
+
+$margin-list: 22px;
+
+.font-gray {
+    color: $gray;
+}
+
+#container-matchday,
+.match-table {
+    flex-direction: column;
+}
+
+.current-matchday,
+.match-date {
+    background-color: $primary;
+}
+
+.score,
+.home-team,
+.away-team {
+    width: 76px;
+}
+
+.match,
+.score {
+    justify-content: center;
+}
+
+#container-matchday {
+    margin: auto;
+    height: 620px;
+    background-color: $light-blue;
+}
+
+.current-matchday {
+    text-align: center;
+    font-weight: bold;
+    color: $secondary;
+    margin: 12px 0;
+    padding: 6px 35px;
+    border-radius: 15px;
+    text-transform: capitalize;
+}
+
+.match-date {
+    text-align: center;
+    color: #ffffff;
+    padding: 6px 0;
+}
+
+.matches-list {
+    list-style: none;
+    padding: 0;
+    margin: $margin-list 0 0 0;
+}
+
+.score {
+    margin: 0 8px;
+}
+
+.winner {
+    color: #111111;
+    font-weight: bold;
+}
+
+.home-team {
+    justify-content: flex-end;
+}
+
+.away-team {
+    justify-content: flex-start;
+}
+
+.club-logo {
+    height: 24px;
+    height: 24px;
+}
+
+.home-logo {
+    margin-left: 10px;
+}
+
+.away-logo {
+    margin-right: 10px;
+}
+
+.matches-list .match {
+    margin-bottom: $margin-list;
+}
+
+// Media queries 
+@media screen and (min-width: $medium) {
+
+    .home-team,
+    .away-team {
+        width: 220px;
+    }
+}
