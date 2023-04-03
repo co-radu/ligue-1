@@ -1,0 +1,62 @@
+<header>
+    <div class="headers align-center">
+        <button (click)="sidenavExpanded()" class="collapse">
+            <span class="material-symbols-outlined white" *ngIf="!isExpanded">
+                menu
+            </span>
+            <span class="material-symbols-outlined white" *ngIf="isExpanded">
+                close
+            </span>
+        </button>
+        <h1>
+            <a routerLink="" (click)="closeSidenav()" class="uppercase bold white txt-deco-none"
+                aria-label="Redirect to home">ligue 1</a>
+        </h1>
+        <!-- Work in progress, available on v0.2! -->
+        <a routerLink="" class="white" id="account-link" aria-label="login">
+            <span class="material-symbols-outlined white">
+                account_circle
+            </span>
+        </a>
+    </div>
+</header>
+
+<nav class="sidenav flex" [ngClass]="!isExpanded ? 'sidenav-closed' : 'sidenav-opened'">
+    <div class="max-width flex sidenav-full">
+        <div class="link-container" routerLinkActive="active">
+            <a routerLink="matches" (click)="sidenavExpanded()" class="white sidenav-link txt-deco-none"
+                routerLinkActive="link-active" aria-label="Redirect to matches calendar">calendrier</a>
+        </div>
+        <div class="link-container" routerLinkActive="active">
+            <a routerLink="standings" (click)="sidenavExpanded()" class="white sidenav-link txt-deco-none"
+                routerLinkActive="link-active" aria-label="Redirect to standings">classement</a>
+        </div>
+    </div>
+</nav>
+
+<div class="max-width">
+    <router-outlet></router-outlet>
+</div>
+
+<footer id="footer">
+    <div class="max-width">
+        <div class="ligue-1-link-container">
+            <span class="white" id="official">Site officiel &nbsp;</span>
+            <a href="https://www.ligue1.fr/" target="_blank" class=" ligue-1-link uppercase bold"
+                aria-label="Redirect to www.ligue1.fr">ligue 1&nbsp;<span id="uber-eats">uber eats</span>
+            </a>
+        </div>
+        <div class="align-center social-list" aria-label="Social links menu">
+            <a href="https://www.linkedin.com/in/corentin-radureau/" target="_blank" class="social-link"
+                aria-label="Redirect to www.linkedin.com">
+                <img src="../../assets/social-logos/LinkedIn-Logos/In-White-26.png" alt="Linkedin logo"
+                    class="social-logos">
+            </a>
+            <a href="https://github.com/co-radu?tab=repositories" target="_blank" class="social-link"
+                aria-label="Redirect to github.com">
+                <img src="../../assets/social-logos/github-mark/github-mark-white.svg" alt="Github logo"
+                    class="social-logos">
+            </a>
+        </div>
+    </div>
+</footer>
