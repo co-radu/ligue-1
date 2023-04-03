@@ -10,6 +10,7 @@ import { MatchesListComponent } from './shared/components/matches-list/matches-l
 import { TeamsStandingsComponent } from './shared/components/teams-standings/teams-standings.component';
 import { StandingPipe } from './shared/pipes/standing/standing.pipe';
 import { StandingsFormColorsPipe } from './shared/pipes/standings-colors/standings-form-colors.pipe';
+import { ResultsPageComponent } from './results-page/results-page.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { StandingsFormColorsPipe } from './shared/pipes/standings-colors/standin
     TeamsStandingsComponent,
     StandingsFormColorsPipe,
     StandingPipe,
+    ResultsPageComponent,
   ],
   imports: [
     BrowserModule,
