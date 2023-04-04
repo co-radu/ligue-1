@@ -15,12 +15,20 @@ export class MatchesService {
 
   constructor(private http: HttpClient) { }
 
-  getMatchesOfCurrentMatchday(currentMatchday: number): Observable<Match[]> {
-    return this.http.get<MatchesList>(`${this.apiUrl}/matches?matchday=${currentMatchday}`).pipe(map((matchesList: MatchesList) => {
-      matchesList.matches.forEach((match: Match) => {
+  fetchMatches(matchesList: Observable<MatchesList>): Observable<Match[]> {
+    return matchesList.pipe(
+      map((matchesList: MatchesList) => matchesList.matches),
+      map((matches: Match[]) => matches.map<Match>((match: Match) => {
         match.utcDate = new Date(match.utcDate);
-      });
-      return matchesList.matches
-    }));
+        return match;
+      })));
+  }
+
+  getallMatches(): Observable<Match[]> {
+    return this.fetchMatches(this.http.get<MatchesList>(`${this.apiUrl}/matches`));
+  }
+
+  getMatchesOfCurrentMatchday(currentMatchday: number): Observable<Match[]> {
+    return this.fetchMatches(this.http.get<MatchesList>(`${this.apiUrl}/matches?matchday=${currentMatchday}`));
   }
 }

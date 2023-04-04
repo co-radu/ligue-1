@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 import { StandingsDescription } from '../../models/season/standings-description';
+import { Competition } from '../../models/competition/competition';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,6 @@ export class SeasonService {
   }
 
   getCurrentMatchday(): Observable<number> {
-    return this.getStandingsDescription().pipe(map((standingsDescription: StandingsDescription) => <number>standingsDescription.season.currentMatchday));
+    return this.http.get<Competition>(`${this.apiUrl}/competition`).pipe(map((compet: Competition) => compet.currentSeason.currentMatchday));
   }
 }
